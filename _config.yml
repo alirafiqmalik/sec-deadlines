@@ -1,14 +1,14 @@
-title: Security and Privacy Conference Deadlines
-description: Countdowns to top Security and Privacy conference deadlines.
-author: Bogdan Kulynych
+title: Conference Deadlines
+description: Countdowns to top Conference deadlines.
+author: Ali Malik
 
 domain: "https://alihamzamalik.me"
 baseurl: "/sec-deadlines"
 
-twitter_username: hiddenmarkov
+twitter_username: AliMalik_2000
 github_username: sec-deadlines
-github_repo: sec-deadlines
-ga_id: UA-104921371-1
+github_repo: sec-deadlines 
+ga_id: G-N8BEYXKQHK
 
 markdown: kramdown
 
