@@ -11,7 +11,7 @@
     - "2025-11-13 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   place: San Francisco, California, USA
-  tags: [SEC, PRIV, CONF, TOP4]
+  tags: [SEC, CONF, TOP4]
 
 - name: CCS
   description: ACM Conference on Computer and Communications Security
@@ -24,7 +24,7 @@
   comment: Abstract registration required (1 week before deadline AoE).
   date: November 15-19
   place: The Hague, The Netherlands
-  tags: [SEC, PRIV, CONF, TOP4]
+  tags: [SEC, CONF, TOP4]
 
 - name: USENIX Security
   description: USENIX Security Symposium
@@ -37,7 +37,7 @@
   comment: Abstract registration required (1 week before deadline AoE).
   date: "August 12-14"
   place: Baltimore, MD, USA
-  tags: [SEC, PRIV, CONF, TOP4]
+  tags: [SEC, CONF, TOP4]
 
 - name: NDSS
   description: ISOC Network and Distributed System Security Symposium
@@ -50,19 +50,40 @@
   comment: Abstract registration required (1 week before deadline AoE).
   date: "February 23-27"
   place: San Diego, CA, USA
-  tags: [SEC, PRIV, CONF, TOP4]
+  tags: [SEC, CONF, TOP4]
 
-- name: IEEE Quantum Week
+- name: IEEE Quantum Week (Workshops/Tutorials)
   description: IEEE International Conference on Quantum Computing and Engineering
   year: 2026
   link: https://qce.quantum.ieee.org/2026/
   deadline:
-    - "2026-03-15 23:59"
-    - "2026-06-01 23:59"
-  comment: Abstract registration required (1 week before deadline AoE).
+    - "2026-03-23 23:59"
+  comment: Workshop and Tutorial Proposals deadline
   date: "September 14-18"
   place: Montreal, Quebec, Canada
-  tags: [SEC, CRYPTO, CONF]
+  tags: [SEC, QUANTUM, SHOP]
+
+- name: IEEE Quantum Week (Technical Papers)
+  description: IEEE International Conference on Quantum Computing and Engineering
+  year: 2026
+  link: https://qce.quantum.ieee.org/2026/
+  deadline:
+    - "2026-04-13 23:59"
+  comment: Main conference technical papers deadline
+  date: "September 14-18"
+  place: Montreal, Quebec, Canada
+  tags: [SEC, QUANTUM, CONF]
+
+- name: IEEE Quantum Week (Posters)
+  description: IEEE International Conference on Quantum Computing and Engineering
+  year: 2026
+  link: https://qce.quantum.ieee.org/2026/
+  deadline:
+    - "2026-06-01 23:59"
+  comment: Poster Proposals deadline
+  date: "September 14-18"
+  place: Montreal, Quebec, Canada
+  tags: [SEC, QUANTUM, SHOP]
 
 - name: ACM QSec
   description: ACM Workshop on Quantum Security and Privacy
@@ -73,4 +94,4 @@
   comment: Co-located with a major security conference.
   date: "October 15"
   place: TBD
-  tags: [SEC, PRIV, CRYPTO, SHOP]
+  tags: [SEC, QUANTUM, SHOP]

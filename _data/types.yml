@@ -1,25 +1,11 @@
 ---
 - name: Security
   tag: SEC
-- name: Privacy
-  tag: PRIV
-- name: Crypto
-  tag: CRYPTO
-- name: Security Top-4
-  tag: TOP4
+- name: Quantum
+  tag: QUANTUM
 - name: A*
-  tag: ASTAR
-- name: A
-  tag: CORE-A
-- name: B
-  tag: CORE-B
-- name: C
-  tag: CORE-C
-- name: National/Unranked
-  tag: OTHERS
+  tag: TOP4
 - name: Conference
   tag: CONF
 - name: Workshop
   tag: SHOP
-- name: Journal
-  tag: JRN
