@@ -1,10 +1,8 @@
 ---
 - name: Security
   tag: SEC
-- name: Privacy
-  tag: PRIV
-- name: Crypto
-  tag: CRYPTO
+- name: Quantum
+  tag: QUANTUM
 - name: A*
   tag: TOP4
 - name: Conference
