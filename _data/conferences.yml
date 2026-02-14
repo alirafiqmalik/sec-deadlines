@@ -81,7 +81,8 @@
   description: IEEE International Conference on Quantum Computing and Engineering
   year: 2026
   link: https://qce.quantum.ieee.org/2026/
-  deadline: "2026-03-23 23:59"
+  deadline:
+    - "2026-03-23 23:59"
   comment: Workshop and Tutorial Proposals deadline
   date: "September 14-18"
   place: Montreal, Quebec, Canada
@@ -91,7 +92,8 @@
   description: IEEE International Conference on Quantum Computing and Engineering
   year: 2026
   link: https://qce.quantum.ieee.org/2026/
-  deadline: "2026-04-13 23:59"
+  deadline:
+    - "2026-04-13 23:59"
   comment: Main conference technical papers deadline
   date: "September 14-18"
   place: Montreal, Quebec, Canada
@@ -101,17 +103,19 @@
   description: IEEE International Conference on Quantum Computing and Engineering
   year: 2026
   link: https://qce.quantum.ieee.org/2026/
-  deadline: "2026-06-01 23:59"
+  deadline:
+    - "2026-06-01 23:59"
   comment: Poster Proposals deadline
   date: "September 14-18"
   place: Montreal, Quebec, Canada
   tags: [SEC, QUANTUM, SHOP]
 
-- name: ACM QSec (Workshop)
+- name: ACM QSec
   description: ACM Workshop on Quantum Security and Privacy
   year: 2026
   link: https://qsec.acm.org/2026/
-  deadline: "2026-05-15 23:59"
+  deadline:
+    - "2026-05-15 23:59"
   comment: Co-located with a major security conference.
   date: "October 15"
   place: TBD
@@ -121,7 +125,7 @@
 - name: QCrypt (Talks)
   year: 2026
   date: August (TBA)
-  description: International Conference on Quantum Cryptography – Contributed talks
+  description: International Conference on Quantum Cryptography - Contributed talks
   link: https://qcrypt.net/
   dblp: https://dblp.org/db/conf/qcrypt/index.html
   deadline: "2026-03-13 23:59"
@@ -132,7 +136,7 @@
 - name: QCrypt (Posters)
   year: 2026
   date: August (TBA)
-  description: International Conference on Quantum Cryptography – Poster track
+  description: International Conference on Quantum Cryptography - Poster track
   link: https://qcrypt.net/
   dblp: https://dblp.org/db/conf/qcrypt/index.html
   deadline: "2026-05-01 23:59"
@@ -140,7 +144,7 @@
   place: TBA
   tags: [QUANTUM, CRYPTO, POSTER]
 
-- name: USEC (Workshop)
+- name: USEC
   year: 2027
   date: February 26
   description: Symposium on Usable Security and Privacy (NDSS co-located)
@@ -151,7 +155,7 @@
   place: TBD
   tags: [SEC, WORKSHOP]
 
-- name: FUZZING (Workshop)
+- name: FUZZING
   year: 2027
   date: February 26
   description: International Fuzzing Workshop (NDSS co-located)
@@ -162,7 +166,7 @@
   place: TBD
   tags: [SEC, WORKSHOP, TOOLS]
 
-- name: LAST-X (Workshop)
+- name: LAST-X
   year: 2027
   date: February 26
   description: Workshop on LLM Assisted Security and Trust Exploration (NDSS co-located)
@@ -173,7 +177,7 @@
   place: TBD
   tags: [AI, SEC, WORKSHOP]
 
-- name: MAgiCS (Workshop)
+- name: MAgiCS
   year: 2027
   date: May (TBA)
   description: Migration and Agility in Cryptographic Systems (Eurocrypt workshop)
@@ -184,7 +188,18 @@
   place: TBD
   tags: [CRYPTO, PQC, WORKSHOP]
 
-- name: SOUPS (Conference)
+- name: USENIX Security (Cycle 2)
+  year: 2027
+  date: August 11-13
+  description: USENIX Security Symposium - Winter submission cycle
+  link: https://www.usenix.org/conference/usenixsecurity27
+  dblp: https://dblp.org/db/conf/uss/index.html
+  deadline: "2027-02-05 23:59"
+  comment: Mandatory paper registration one week earlier.
+  place: TBD
+  tags: [SEC, CONF, TOP4]
+
+- name: SOUPS
   year: 2026
   date: August 23-26
   description: Symposium on Usable Privacy and Security
@@ -198,7 +213,7 @@
 - name: WiSec (Cycle 2)
   year: 2026
   date: June 30-July 3
-  description: ACM Conference on Security and Privacy in Wireless and Mobile Networks – Second cycle
+  description: ACM Conference on Security and Privacy in Wireless and Mobile Networks - Second cycle
   link: https://wisec2026.org/
   dblp: https://dblp.org/db/conf/wisec/index.html
   deadline: "2026-03-03 23:59"
@@ -209,7 +224,7 @@
 - name: ESORICS (Cycle 2)
   year: 2026
   date: September 21-25
-  description: European Symposium on Research in Computer Security – Second cycle
+  description: European Symposium on Research in Computer Security - Second cycle
   link: https://esorics2026.org/
   dblp: https://dblp.org/db/conf/esorics/index.html
   deadline: "2026-04-21 23:59"
