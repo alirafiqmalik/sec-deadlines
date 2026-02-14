@@ -6,7 +6,8 @@
   description: IEEE Symposium on Security and Privacy
   link: https://sp2027.ieee-security.org/
   dblp: https://dblp.org/db/conf/sp/index.html
-  deadline: "2026-06-04 23:59"
+  deadline:
+    - "2026-06-04 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   place: San Francisco, California, USA
   tags: [SEC, CONF, TOP4]
@@ -17,7 +18,8 @@
   description: IEEE Symposium on Security and Privacy
   link: https://sp2027.ieee-security.org/
   dblp: https://dblp.org/db/conf/sp/index.html
-  deadline: "2026-11-12 23:59"
+  deadline:
+    - "2026-11-12 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   place: San Francisco, California, USA
   tags: [SEC, CONF, TOP4]
@@ -27,7 +29,8 @@
   year: 2026
   link: https://www.sigsac.org/ccs/CCS2026
   dblp: https://dblp.org/db/conf/ccs/index.html
-  deadline: "2026-01-14 23:59"
+  deadline:
+    - "2026-01-14 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   date: November 15-19
   place: The Hague, The Netherlands
@@ -38,7 +41,8 @@
   year: 2027
   link: https://www.usenix.org/conference/usenixsecurity27
   dblp: https://dblp.org/db/conf/uss/index.html
-  deadline: "2026-08-26 23:59"
+  deadline:
+    - "2026-08-26 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   date: "August 11-13"
   place: TBD
@@ -49,7 +53,8 @@
   year: 2027
   link: https://www.usenix.org/conference/usenixsecurity27
   dblp: https://dblp.org/db/conf/uss/index.html
-  deadline: "2027-02-05 23:59"
+  deadline:
+    - "2027-02-05 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   date: "August 11-13"
   place: TBD
@@ -60,7 +65,8 @@
   year: 2027
   link: https://www.ndss-symposium.org/ndss2027/submissions/call-for-papers/
   dblp: https://dblp.org/db/conf/ndss/index.html
-  deadline: "2026-04-22 23:59"
+  deadline:
+    - "2026-04-22 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   date: "February 22-26"
   place: TBD
@@ -71,7 +77,8 @@
   year: 2027
   link: https://www.ndss-symposium.org/ndss2027/submissions/call-for-papers/
   dblp: https://dblp.org/db/conf/ndss/index.html
-  deadline: "2026-08-05 23:59"
+  deadline:
+    - "2026-08-05 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   date: "February 22-26"
   place: TBD
@@ -128,7 +135,8 @@
   description: International Conference on Quantum Cryptography - Contributed talks
   link: https://qcrypt.net/
   dblp: https://dblp.org/db/conf/qcrypt/index.html
-  deadline: "2026-03-13 23:59"
+  deadline:
+    - "2026-03-13 23:59"
   comment: For full contributed presentations.
   place: TBA
   tags: [QUANTUM, CRYPTO, CONF]
@@ -139,7 +147,8 @@
   description: International Conference on Quantum Cryptography - Poster track
   link: https://qcrypt.net/
   dblp: https://dblp.org/db/conf/qcrypt/index.html
-  deadline: "2026-05-01 23:59"
+  deadline:
+    - "2026-05-01 23:59"
   comment: Ideal for early-stage work and work-in-progress.
   place: TBA
   tags: [QUANTUM, CRYPTO, POSTER]
@@ -150,7 +159,8 @@
   description: Symposium on Usable Security and Privacy (NDSS co-located)
   link: https://www.ndss-symposium.org/ndss2027/co-located-events/usec/
   dblp: https://dblp.org/db/conf/usec/index.html
-  deadline: "2026-12-06 23:59"
+  deadline:
+    - "2026-12-06 23:59"
   comment: Co-located with NDSS.
   place: TBD
   tags: [SEC, WORKSHOP]
@@ -161,7 +171,8 @@
   description: International Fuzzing Workshop (NDSS co-located)
   link: https://www.ndss-symposium.org/ndss2027/co-located-events/fuzzing/
   dblp: N/A
-  deadline: "2026-12-11 23:59"
+  deadline:
+    - "2026-12-11 23:59"
   comment: Registered-reports publication model.
   place: TBD
   tags: [SEC, WORKSHOP, TOOLS]
@@ -172,7 +183,8 @@
   description: Workshop on LLM Assisted Security and Trust Exploration (NDSS co-located)
   link: https://www.ndss-symposium.org/ndss2027/submissions/cfp-last-x/
   dblp: N/A
-  deadline: "2026-12-11 23:59"
+  deadline:
+    - "2026-12-11 23:59"
   comment: Focus on LLM + security + formal reasoning.
   place: TBD
   tags: [AI, SEC, WORKSHOP]
@@ -183,7 +195,8 @@
   description: Migration and Agility in Cryptographic Systems (Eurocrypt workshop)
   link: https://sec-deadlines.github.io/
   dblp: N/A
-  deadline: "2027-02-02 23:59"
+  deadline:
+    - "2027-02-02 23:59"
   comment: Strong fit for PQC migration case studies.
   place: TBD
   tags: [CRYPTO, PQC, WORKSHOP]
@@ -194,7 +207,8 @@
   description: USENIX Security Symposium - Winter submission cycle
   link: https://www.usenix.org/conference/usenixsecurity27
   dblp: https://dblp.org/db/conf/uss/index.html
-  deadline: "2027-02-05 23:59"
+  deadline:
+    - "2027-02-05 23:59"
   comment: Mandatory paper registration one week earlier.
   place: TBD
   tags: [SEC, CONF, TOP4]
@@ -205,7 +219,8 @@
   description: Symposium on Usable Privacy and Security
   link: https://www.usenix.org/conference/soups2026
   dblp: https://dblp.org/db/conf/soups/index.html
-  deadline: "2026-02-19 23:59"
+  deadline:
+    - "2026-02-19 23:59"
   comment: Abstract registration required.
   place: Hannover, Germany
   tags: [SEC, CONF]
@@ -216,7 +231,8 @@
   description: ACM Conference on Security and Privacy in Wireless and Mobile Networks - Second cycle
   link: https://wisec2026.org/
   dblp: https://dblp.org/db/conf/wisec/index.html
-  deadline: "2026-03-03 23:59"
+  deadline:
+    - "2026-03-03 23:59"
   comment: Two-cycle submission model.
   place: Saarbrücken, Germany
   tags: [SEC, CONF]
@@ -227,7 +243,8 @@
   description: European Symposium on Research in Computer Security - Second cycle
   link: https://esorics2026.org/
   dblp: https://dblp.org/db/conf/esorics/index.html
-  deadline: "2026-04-21 23:59"
+  deadline:
+    - "2026-04-21 23:59"
   comment: Late-cycle submission.
   place: Rome, Italy
   tags: [SEC, CONF]
@@ -238,7 +255,8 @@
   description: ACM CCS abstract registration
   link: https://www.sigsac.org/ccs/CCS2026/
   dblp: https://dblp.org/db/conf/ccs/index.html
-  deadline: "2026-04-22 23:59"
+  deadline:
+    - "2026-04-22 23:59"
   comment: Mandatory abstract deadline.
   place: The Hague, Netherlands
   tags: [SEC, CONF, TOP4]
@@ -249,7 +267,8 @@
   description: ACM CCS full paper submission
   link: https://www.sigsac.org/ccs/CCS2026/
   dblp: https://dblp.org/db/conf/ccs/index.html
-  deadline: "2026-04-29 23:59"
+  deadline:
+    - "2026-04-29 23:59"
   comment: Main submission deadline.
   place: The Hague, Netherlands
   tags: [SEC, CONF, TOP4]
