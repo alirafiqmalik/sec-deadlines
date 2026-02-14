@@ -177,18 +177,6 @@
   place: TBD
   tags: [SEC, WORKSHOP, TOOLS]
 
-- name: LAST-X
-  year: 2027
-  date: February 26
-  description: Workshop on LLM Assisted Security and Trust Exploration (NDSS co-located)
-  link: https://www.ndss-symposium.org/ndss2027/submissions/cfp-last-x/
-  dblp: N/A
-  deadline:
-    - "2026-12-11 23:59"
-  comment: Focus on LLM + security + formal reasoning.
-  place: TBD
-  tags: [AI, SEC, WORKSHOP]
-
 - name: MAgiCS
   year: 2027
   date: May (TBA)

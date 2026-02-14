@@ -5,8 +5,6 @@
   tag: QUANTUM
 - name: Cryptography
   tag: CRYPTO
-- name: Privacy
-  tag: PRIV
 - name: AI/ML
   tag: AI
 - name: A*
