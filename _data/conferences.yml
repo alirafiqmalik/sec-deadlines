@@ -1,63 +1,87 @@
 # Security and Privacy
 
-- name: S&P (Oakland)
-  year: 2026
-  date: May 18-21
+- name: S&P (Oakland) (Cycle 1)
+  year: 2027
+  date: May 17-20
   description: IEEE Symposium on Security and Privacy
-  link: https://sp2026.ieee-security.org/
+  link: https://sp2027.ieee-security.org/
   dblp: https://dblp.org/db/conf/sp/index.html
-  deadline:
-    - "2025-06-05 23:59"
-    - "2025-11-13 23:59"
+  deadline: "2026-06-04 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   place: San Francisco, California, USA
   tags: [SEC, CONF, TOP4]
 
-- name: CCS
+- name: S&P (Oakland) (Cycle 2)
+  year: 2027
+  date: May 17-20
+  description: IEEE Symposium on Security and Privacy
+  link: https://sp2027.ieee-security.org/
+  dblp: https://dblp.org/db/conf/sp/index.html
+  deadline: "2026-11-12 23:59"
+  comment: Abstract registration required (1 week before deadline AoE).
+  place: San Francisco, California, USA
+  tags: [SEC, CONF, TOP4]
+
+- name: ACM CCS (Cycle 1)
   description: ACM Conference on Computer and Communications Security
   year: 2026
   link: https://www.sigsac.org/ccs/CCS2026
   dblp: https://dblp.org/db/conf/ccs/index.html
-  deadline:
-    - "2026-01-14 23:59"
-    - "2026-04-29 23:59"
+  deadline: "2026-01-14 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
   date: November 15-19
   place: The Hague, The Netherlands
   tags: [SEC, CONF, TOP4]
 
-- name: USENIX Security
+- name: USENIX Security (Cycle 1)
   description: USENIX Security Symposium
-  year: 2026
-  link: https://www.usenix.org/conference/usenixsecurity26
+  year: 2027
+  link: https://www.usenix.org/conference/usenixsecurity27
   dblp: https://dblp.org/db/conf/uss/index.html
-  deadline:
-    - "2025-08-26 23:59"
-    - "2026-02-05 23:59"
+  deadline: "2026-08-26 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
-  date: "August 12-14"
-  place: Baltimore, MD, USA
+  date: "August 11-13"
+  place: TBD
   tags: [SEC, CONF, TOP4]
 
-- name: NDSS
-  description: ISOC Network and Distributed System Security Symposium
-  year: 2026
-  link: https://www.ndss-symposium.org/ndss2026/submissions/call-for-papers/
-  dblp: https://dblp.org/db/conf/ndss/index.html
-  deadline:
-    - "2025-04-23 23:59"
-    - "2025-08-06 23:59"
+- name: USENIX Security (Cycle 2)
+  description: USENIX Security Symposium
+  year: 2027
+  link: https://www.usenix.org/conference/usenixsecurity27
+  dblp: https://dblp.org/db/conf/uss/index.html
+  deadline: "2027-02-05 23:59"
   comment: Abstract registration required (1 week before deadline AoE).
-  date: "February 23-27"
-  place: San Diego, CA, USA
+  date: "August 11-13"
+  place: TBD
+  tags: [SEC, CONF, TOP4]
+
+- name: NDSS (Cycle 1)
+  description: ISOC Network and Distributed System Security Symposium
+  year: 2027
+  link: https://www.ndss-symposium.org/ndss2027/submissions/call-for-papers/
+  dblp: https://dblp.org/db/conf/ndss/index.html
+  deadline: "2026-04-22 23:59"
+  comment: Abstract registration required (1 week before deadline AoE).
+  date: "February 22-26"
+  place: TBD
+  tags: [SEC, CONF, TOP4]
+
+- name: NDSS (Cycle 2)
+  description: ISOC Network and Distributed System Security Symposium
+  year: 2027
+  link: https://www.ndss-symposium.org/ndss2027/submissions/call-for-papers/
+  dblp: https://dblp.org/db/conf/ndss/index.html
+  deadline: "2026-08-05 23:59"
+  comment: Abstract registration required (1 week before deadline AoE).
+  date: "February 22-26"
+  place: TBD
   tags: [SEC, CONF, TOP4]
 
 - name: IEEE Quantum Week (Workshops/Tutorials)
   description: IEEE International Conference on Quantum Computing and Engineering
   year: 2026
   link: https://qce.quantum.ieee.org/2026/
-  deadline:
-    - "2026-03-23 23:59"
+  deadline: "2026-03-23 23:59"
   comment: Workshop and Tutorial Proposals deadline
   date: "September 14-18"
   place: Montreal, Quebec, Canada
@@ -67,8 +91,7 @@
   description: IEEE International Conference on Quantum Computing and Engineering
   year: 2026
   link: https://qce.quantum.ieee.org/2026/
-  deadline:
-    - "2026-04-13 23:59"
+  deadline: "2026-04-13 23:59"
   comment: Main conference technical papers deadline
   date: "September 14-18"
   place: Montreal, Quebec, Canada
@@ -78,19 +101,17 @@
   description: IEEE International Conference on Quantum Computing and Engineering
   year: 2026
   link: https://qce.quantum.ieee.org/2026/
-  deadline:
-    - "2026-06-01 23:59"
+  deadline: "2026-06-01 23:59"
   comment: Poster Proposals deadline
   date: "September 14-18"
   place: Montreal, Quebec, Canada
   tags: [SEC, QUANTUM, SHOP]
 
-- name: ACM QSec
+- name: ACM QSec (Workshop)
   description: ACM Workshop on Quantum Security and Privacy
   year: 2026
   link: https://qsec.acm.org/2026/
-  deadline:
-    - "2026-05-15 23:59"
+  deadline: "2026-05-15 23:59"
   comment: Co-located with a major security conference.
   date: "October 15"
   place: TBD
@@ -119,62 +140,51 @@
   place: TBA
   tags: [QUANTUM, CRYPTO, POSTER]
 
-- name: USEC
-  year: 2026
-  date: February 27
+- name: USEC (Workshop)
+  year: 2027
+  date: February 26
   description: Symposium on Usable Security and Privacy (NDSS co-located)
-  link: https://www.ndss-symposium.org/ndss2026/co-located-events/usec/
+  link: https://www.ndss-symposium.org/ndss2027/co-located-events/usec/
   dblp: https://dblp.org/db/conf/usec/index.html
-  deadline: "2025-12-06 23:59"
-  comment: Co-located with NDSS. :contentReference[oaicite:0]{index=0}
-  place: San Diego, California, USA
+  deadline: "2026-12-06 23:59"
+  comment: Co-located with NDSS.
+  place: TBD
   tags: [SEC, WORKSHOP]
 
-- name: FUZZING
-  year: 2026
-  date: February 27
+- name: FUZZING (Workshop)
+  year: 2027
+  date: February 26
   description: International Fuzzing Workshop (NDSS co-located)
-  link: https://www.ndss-symposium.org/ndss2026/co-located-events/fuzzing/
+  link: https://www.ndss-symposium.org/ndss2027/co-located-events/fuzzing/
   dblp: N/A
-  deadline: "2025-12-11 23:59"
-  comment: Registered-reports publication model. :contentReference[oaicite:1]{index=1}
-  place: San Diego, California, USA
+  deadline: "2026-12-11 23:59"
+  comment: Registered-reports publication model.
+  place: TBD
   tags: [SEC, WORKSHOP, TOOLS]
 
-- name: LAST-X
-  year: 2026
-  date: February 27
+- name: LAST-X (Workshop)
+  year: 2027
+  date: February 26
   description: Workshop on LLM Assisted Security and Trust Exploration (NDSS co-located)
-  link: https://www.ndss-symposium.org/ndss2026/submissions/cfp-last-x/
+  link: https://www.ndss-symposium.org/ndss2027/submissions/cfp-last-x/
   dblp: N/A
-  deadline: "2025-12-11 23:59"
+  deadline: "2026-12-11 23:59"
   comment: Focus on LLM + security + formal reasoning.
-  place: San Diego, California, USA
+  place: TBD
   tags: [AI, SEC, WORKSHOP]
 
-- name: MAgiCS
-  year: 2026
-  date: May 10
+- name: MAgiCS (Workshop)
+  year: 2027
+  date: May (TBA)
   description: Migration and Agility in Cryptographic Systems (Eurocrypt workshop)
   link: https://sec-deadlines.github.io/
   dblp: N/A
-  deadline: "2026-02-02 23:59"
+  deadline: "2027-02-02 23:59"
   comment: Strong fit for PQC migration case studies.
-  place: Rome, Italy
+  place: TBD
   tags: [CRYPTO, PQC, WORKSHOP]
 
-- name: USENIX Security (Cycle 2)
-  year: 2026
-  date: August 12-14
-  description: USENIX Security Symposium – Winter submission cycle
-  link: https://www.usenix.org/conference/usenixsecurity26
-  dblp: https://dblp.org/db/conf/uss/index.html
-  deadline: "2026-02-05 23:59"
-  comment: Mandatory paper registration one week earlier. :contentReference[oaicite:2]{index=2}
-  place: Baltimore, Maryland, USA
-  tags: [SEC, CONF, TOP4]
-
-- name: SOUPS
+- name: SOUPS (Conference)
   year: 2026
   date: August 23-26
   description: Symposium on Usable Privacy and Security
