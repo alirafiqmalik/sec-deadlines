@@ -3,9 +3,23 @@
   tag: SEC
 - name: Quantum
   tag: QUANTUM
+- name: Cryptography
+  tag: CRYPTO
+- name: Privacy
+  tag: PRIV
+- name: AI/ML
+  tag: AI
 - name: A*
   tag: TOP4
 - name: Conference
   tag: CONF
 - name: Workshop
   tag: SHOP
+- name: Workshop/Tutorial
+  tag: WORKSHOP
+- name: Poster
+  tag: POSTER
+- name: Tools
+  tag: TOOLS
+- name: Post-Quantum
+  tag: PQC
