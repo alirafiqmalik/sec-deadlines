@@ -15,8 +15,8 @@
   tag: CONF
 - name: Workshop
   tag: SHOP
-- name: Workshop/Tutorial
-  tag: WORKSHOP
+- name: Tutorial
+  tag: TUTORIAL
 - name: Poster
   tag: POSTER
 - name: Tools
