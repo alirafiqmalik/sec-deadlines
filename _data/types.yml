@@ -14,7 +14,7 @@
 - name: Conference
   tag: CONF
 - name: Workshop
-  tag: SHOP
+  tag: WORKSHOP
 - name: Tutorial
   tag: TUTORIAL
 - name: Poster

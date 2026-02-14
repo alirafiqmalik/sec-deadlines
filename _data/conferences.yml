@@ -93,7 +93,7 @@
   comment: Workshop and Tutorial Proposals deadline
   date: "September 14-18"
   place: Montreal, Quebec, Canada
-  tags: [SEC, QUANTUM, SHOP, TUTORIAL]
+  tags: [SEC, QUANTUM, WORKSHOP, TUTORIAL]
 
 - name: IEEE Quantum Week (Technical Papers)
   description: IEEE International Conference on Quantum Computing and Engineering
@@ -126,7 +126,7 @@
   comment: Co-located with a major security conference.
   date: "October 15"
   place: TBD
-  tags: [SEC, QUANTUM, SHOP]
+  tags: [SEC, QUANTUM, WORKSHOP]
 
 
 - name: QCrypt (Talks)
