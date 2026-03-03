@@ -1,17 +1,6 @@
 # Security and Privacy
 
 
-- name: ACM CCS (Cycle 1)
-  description: ACM Conference on Computer and Communications Security
-  year: 2026
-  link: https://www.sigsac.org/ccs/CCS2026
-  dblp: https://dblp.org/db/conf/ccs/index.html
-  deadline:
-    - "2026-01-14 23:59"
-  comment: Abstract registration required (1 week before deadline AoE).
-  date: November 15-19
-  place: The Hague, The Netherlands
-  tags: [SEC, CONF, TOP4]
 
 
 
@@ -88,41 +77,6 @@
   tags: [SEC, WORKSHOP, TOOLS]
 
 
-- name: SOUPS
-  year: 2026
-  date: August 23-26
-  description: Symposium on Usable Privacy and Security
-  link: https://www.usenix.org/conference/soups2026
-  dblp: https://dblp.org/db/conf/soups/index.html
-  deadline:
-    - "2026-02-19 23:59"
-  comment: Abstract registration required.
-  place: Hannover, Germany
-  tags: [SEC, CONF]
-
-- name: WiSec (Cycle 2)
-  year: 2026
-  date: June 30-July 3
-  description: ACM Conference on Security and Privacy in Wireless and Mobile Networks - Second cycle
-  link: https://wisec2026.org/
-  dblp: https://dblp.org/db/conf/wisec/index.html
-  deadline:
-    - "2026-03-03 23:59"
-  comment: Two-cycle submission model.
-  place: Saarbrücken, Germany
-  tags: [SEC, CONF]
-
-- name: ESORICS (Cycle 2)
-  year: 2026
-  date: September 21-25
-  description: European Symposium on Research in Computer Security - Second cycle
-  link: https://esorics2026.org/
-  dblp: https://dblp.org/db/conf/esorics/index.html
-  deadline:
-    - "2026-04-21 23:59"
-  comment: Late-cycle submission.
-  place: Rome, Italy
-  tags: [SEC, CONF]
 
 - name: ACM CCS (Abstract)
   year: 2026
