@@ -101,94 +101,59 @@ $(function() {
 
   $('.conf-container').append(confs);
 
-  // Read filter data from Jekyll
-  var filter1 = {{ site.data.filters.filter1 | jsonify }};
-  var filter2 = {{ site.data.filters.filter2 | jsonify }};
-  var filter3 = {{ site.data.filters.filter3 | jsonify }};
-
+  var conf_type_data = {{ site.data.types | jsonify }};
   var all_tags = [];
-
-  function processFilters(filters) {
-    for (var i = 0; i < filters.length; i++) {
-      all_tags.push(filters[i].tag);
-    }
+  var toggle_status = {};
+  for (var i = 0; i < conf_type_data.length; i++) {
+    all_tags[i] = conf_type_data[i]['tag'];
+    toggle_status[all_tags[i]] = false;
   }
-
-  processFilters(filter1);
-  processFilters(filter2);
-  processFilters(filter3);
-
-  // Restore saved checkbox state
   var tags = store.get('{{ site.domain }}');
-  if (!Array.isArray(tags)) {
-    tags = [];
+  if (tags === undefined) {
+    tags = all_tags;
   }
-
-  for (var i = 0; i < all_tags.length; i++) {
-    var tag = all_tags[i];
-    $('#' + tag + '-checkbox').prop('checked', tags.includes(tag));
+  for (var i = 0; i < tags.length; i++) {
+    $('#' + tags[i] + '-checkbox').prop('checked', false);
+    toggle_status[tags[i]] = false;
   }
+  store.set('{{ site.domain }}', tags);
 
-  function getSelectedFiltersFromDOM() {
-    var selected = {
-      filter1: new Set(),
-      filter2: new Set(),
-      filter3: new Set()
-    };
-
-    $('.filter-checkbox:checked').each(function() {
-      var tag = $(this).attr('id').replace('-checkbox', '');
-      var filterGroup = $(this).data('filter-group');
-
-      if (filterGroup && selected[filterGroup]) {
-        selected[filterGroup].add(tag);
+  function update_conf_list() {
+    confs.each(function(i, conf) {
+      var conf = $(conf);
+      var show = false;
+      var set_tags = [];
+      for (var j = 0; j < all_tags.length; j++) {
+        if (toggle_status[all_tags[j]]) {
+          set_tags.push(conf.hasClass(all_tags[j]));
+        }
+      }
+      var empty_or_all_true = function(arr) { return arr.every(Boolean); };
+      show = empty_or_all_true(set_tags);
+      if (show) {
+        conf.show();
+      } else {
+        conf.hide();
       }
     });
-
-    return selected;
   }
+  update_conf_list();
 
-  function saveSelectedTags() {
-    var selectedTags = [];
-    $('.filter-checkbox:checked').each(function() {
-      selectedTags.push($(this).attr('id').replace('-checkbox', ''));
-    });
-    store.set('{{ site.domain }}', selectedTags);
-  }
+  $('form :checkbox').change(function(e) {
+    var checked = $(this).is(':checked');
+    var tag = $(this).prop('id').slice(0, -9);
+    toggle_status[tag] = checked;
 
-  function updateConfList() {
-    var selectedFilters = getSelectedFiltersFromDOM();
-
-    $('.conf').each(function() {
-      var conf = $(this);
-      var show = true;
-
-      Object.keys(selectedFilters).forEach(function(filterGroup) {
-        if (!show) return;
-
-        if (selectedFilters[filterGroup].size > 0) {
-          var hasTag = false;
-
-          selectedFilters[filterGroup].forEach(function(tag) {
-            if (conf.hasClass(tag)) {
-              hasTag = true;
-            }
-          });
-
-          if (!hasTag) {
-            show = false;
-          }
-        }
-      });
-
-      conf.toggle(show);
-    });
-  }
-
-  $('.filter-checkbox').on('change', function() {
-    saveSelectedTags();
-    updateConfList();
+    if (checked == true) {
+      if (tags.indexOf(tag) < 0)
+        tags.push(tag);
+    }
+    else {
+      var idx = tags.indexOf(tag);
+      if (idx >= 0)
+        tags.splice(idx, 1);
+    }
+    store.set('{{ site.domain }}', tags);
+    update_conf_list();
   });
-
-  updateConfList();
 });
