@@ -29,6 +29,77 @@
   place: Montreal, Quebec, Canada
   tags: [SEC, QUANTUM, POSTER]
 
+- name: FMCAD (Abstract)
+  description: International Conference on Formal Methods in Computer-Aided Design
+  year: 2026
+  link: https://fmcad.org/FMCAD26/
+  dblp: https://dblp.org/db/conf/fmcad/index.html
+  deadline:
+    - "2026-04-26 23:59"
+  comment: Abstract registration deadline (AoE).
+  date: "September 14-18"
+  place: Graz, Austria
+  tags: [FORMAL, CONF]
+
+- name: OVERLAY
+  description: "Workshop on AI and Formal Verification, Logic, Automata, and sYnthesis (FLoC 2026)"
+  year: 2026
+  link: https://overlay.uniud.it/workshop/2026
+  deadline:
+    - "2026-05-01 23:59"
+  comment: Paper submission deadline (AoE).
+  date: "July 18-19"
+  place: Lisbon, Portugal
+  tags: [AI, FORMAL, WORKSHOP]
+
+- name: FMCAD (Full Paper)
+  description: International Conference on Formal Methods in Computer-Aided Design
+  year: 2026
+  link: https://fmcad.org/FMCAD26/
+  dblp: https://dblp.org/db/conf/fmcad/index.html
+  deadline:
+    - "2026-05-03 23:59"
+  comment: Full paper submission deadline (AoE).
+  date: "September 14-18"
+  place: Graz, Austria
+  tags: [FORMAL, CONF]
+
+- name: NeurIPS (Abstract)
+  description: Neural Information Processing Systems — main track abstract registration
+  year: 2026
+  link: https://neurips.cc/Conferences/2026/CallForPapers
+  dblp: https://dblp.org/db/conf/nips/index.html
+  deadline:
+    - "2026-05-04 23:59"
+  comment: Paper abstract deadline (AoE); all authors need an OpenReview profile.
+  date: "December 6-12"
+  place: Atlanta, Georgia, USA
+  tags: [AI, CONF]
+
+- name: NeurIPS (Full Paper)
+  description: Neural Information Processing Systems — main track full paper submission
+  year: 2026
+  link: https://neurips.cc/Conferences/2026/CallForPapers
+  dblp: https://dblp.org/db/conf/nips/index.html
+  deadline:
+    - "2026-05-06 23:59"
+  comment: Full paper and supplementary materials deadline (AoE).
+  date: "December 6-12"
+  place: Atlanta, Georgia, USA
+  tags: [AI, CONF]
+
+- name: NeurIPS (Workshop proposals)
+  description: Neural Information Processing Systems — workshop proposal submission
+  year: 2026
+  link: https://neurips.cc/Conferences/2026/CallForWorkshops
+  dblp: https://dblp.org/db/conf/nips/index.html
+  deadline:
+    - "2026-06-06 23:59"
+  comment: Workshop proposal submission deadline (AoE).
+  date: "December 6-12"
+  place: Atlanta, Georgia, USA
+  tags: [AI, WORKSHOP]
+
 - name: ACM QSec
   description: ACM Workshop on Quantum Security and Privacy
   year: 2026

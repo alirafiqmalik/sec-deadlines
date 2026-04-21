@@ -5,6 +5,8 @@
   tag: QUANTUM
 - name: Cryptography
   tag: CRYPTO
+- name: Formal methods
+  tag: FORMAL
 - name: AI/ML
   tag: AI
 - name: A*
