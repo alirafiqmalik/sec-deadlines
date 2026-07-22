@@ -27,3 +27,11 @@ filter2:
 filter3:
   - name: A*
     tag: TOP4
+  - name: A
+    tag: CORE-A
+  - name: B
+    tag: CORE-B
+  - name: C
+    tag: CORE-C
+  - name: National/Unranked
+    tag: OTHERS
