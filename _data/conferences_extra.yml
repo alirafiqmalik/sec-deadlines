@@ -1,47 +1,65 @@
-# Top-tier research conferences.
-# Merged with _data/conferences.yml at build time by _layouts/home.html.
-# Auto-Find (.github/workflows/auto-find.yml) appends discovered venues here.
+# Additional venues maintained outside the upstream fork data.
+# The layout merges this file with _data/conferences.yml.
+# scripts/auto_find.py appends auto-discovered candidates here and prunes
+# expired entries.
 
 - name: NeurIPS
-  description: Conference on Neural Information Processing Systems (40th)
+  description: Conference on Neural Information Processing Systems
   year: 2026
-  link: https://neurips.cc/
+  link: https://neurips.cc/Conferences/2026
   deadline:
+    - '2026-05-04 23:59:59'
+    - '2026-05-06 23:59:59'
   timezone: UTC-12
   date: December 6-12, 2026
-  place: Sydney, Australia
-  note: Main-track submissions closed (May 2026). Satellite meetings in Atlanta and Paris.
+  start_date: '2026-12-06'
+  end_date: '2026-12-12'
+  place: Sydney, Australia (+ satellite meetings in Atlanta & Paris)
+  note: Abstracts May 4, full papers May 6 (AoE)
   sub: [AI]
+  type: conf
 
 - name: AAAI
-  description: AAAI Conference on Artificial Intelligence (41st)
+  description: AAAI Conference on Artificial Intelligence
   year: 2027
   link: https://aaai.org/conference/aaai/aaai-27/
-  deadline: ['2026-07-21 23:59', '2026-07-28 23:59', '2026-12-14 23:59']
+  deadline:
+    - '2026-07-21 23:59:59'
+    - '2026-07-28 23:59:59'
   timezone: UTC-12
   date: February 16-23, 2027
-  place: Montreal, Canada
-  note: Abstracts due Jul 21, 2026; full papers Jul 28, 2026; camera-ready Dec 14, 2026. All deadlines AoE.
+  start_date: '2027-02-16'
+  end_date: '2027-02-23'
+  place: Montréal, Canada
+  note: Abstracts Jul 21, full papers Jul 28 (AoE); camera-ready Dec 14, 2026
   sub: [AI]
+  type: conf
 
 - name: ICLR
-  description: International Conference on Learning Representations (15th)
+  description: International Conference on Learning Representations
   year: 2027
-  link: https://iclr.cc/
-  deadline: ['2026-09-26 23:59']
+  link: https://iclr.cc/Conferences/2027
+  deadline:
+    - '2026-09-18 23:59:59'
+    - '2026-09-25 23:59:59'
+    - '2026-10-10 23:59:59'
   timezone: UTC-12
   date: April 26-30, 2027
-  place: California, USA
-  note: Submissions closed Sep 2026. Main conference Apr 26-28; workshops Apr 29-30.
+  start_date: '2027-04-26'
+  end_date: '2027-04-30'
+  place: San Francisco, California
+  note: Abstracts Sep 18, papers Sep 25; workshop proposals Oct 10 (AoE)
   sub: [AI]
+  type: conf
 
 - name: ICML
   description: International Conference on Machine Learning
   year: 2027
   link: https://icml.cc/
-  deadline:
+  deadline: TBD
   timezone: UTC-12
   date: TBD (2026 edition was July 6-11 in Seoul)
   place: TBA
-  note: 2027 dates and location not yet announced.
+  note: 2027 dates, location, and deadlines to be announced
   sub: [AI]
+  type: conf
