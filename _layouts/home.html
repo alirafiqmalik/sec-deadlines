@@ -1,233 +1,268 @@
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.title %}{{ page.title }} · {% endif %}Ali Hamza Malik</title>
+<meta name="description" content="Curated countdowns to upcoming conference deadlines. Created by Ali Hamza Malik.">
+<link rel="icon" href="data:,">
+<style>
+:root{
+  --bg:#0a192f; --bg-alt:#112240; --border:#233554;
+  --text:#8892b0; --text-strong:#a8b2d1; --head:#ccd6f6; --accent:#64ffda;
+  --accent-dim:rgba(100,255,218,.12);
+  --sans:"Calibre","Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
+  --mono:"SF Mono","Fira Code","Fira Mono","Roboto Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.site-header{position:sticky;top:0;z-index:10;display:flex;justify-content:space-between;align-items:center;padding:16px 5vw;background:rgba(10,25,47,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--border)}
+.brand{font-family:var(--mono);font-size:18px;color:var(--accent);letter-spacing:.5px}
+.brand:hover{text-decoration:none;color:var(--accent)}
+.site-header nav a{margin-left:24px;font-family:var(--mono);font-size:13px;color:var(--text-strong)}
+.site-header nav a:hover{color:var(--accent);text-decoration:none}
+main{max-width:1000px;margin:0 auto;padding:48px 5vw 96px}
+.hero{padding:40px 0 28px}
+.kicker{font-family:var(--mono);color:var(--accent);font-size:14px;margin-bottom:12px}
+.hero h1{color:var(--head);font-size:clamp(32px,6vw,52px);font-weight:700;line-height:1.1}
+.hero .sub{margin-top:14px;max-width:640px;font-size:17px}
+.controls{margin:24px 0 32px;padding:20px;background:var(--bg-alt);border:1px solid var(--border);border-radius:8px}
+.controls-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+#search{flex:1;min-width:220px;background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:10px 14px;color:var(--head);font-family:var(--mono);font-size:14px;outline:none}
+#search:focus{border-color:var(--accent)}
+.toggle{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:13px;color:var(--text-strong);cursor:pointer;user-select:none}
+.toggle input{accent-color:var(--accent);width:16px;height:16px;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{font-family:var(--mono);font-size:12px;padding:5px 12px;border-radius:999px;border:1px solid var(--border);color:var(--text-strong);background:transparent;cursor:pointer;transition:all .15s ease}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.counts{margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--text)}
+.venues{display:flex;flex-direction:column;gap:16px}
+.venue{background:var(--bg-alt);border:1px solid var(--border);border-radius:8px;padding:20px 24px;transition:transform .15s ease,border-color .15s ease}
+.venue:hover{transform:translateY(-2px);border-color:var(--accent)}
+.venue.hidden{display:none}
+.venue-top{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.venue h2{font-size:20px;color:var(--head);font-weight:600;display:inline}
+.venue .year{font-family:var(--mono);font-size:13px;color:var(--accent);margin-left:8px}
+.countdown{font-family:var(--mono);font-size:14px;color:var(--accent);white-space:nowrap}
+.countdown.past{color:#f97583}
+.countdown.tba{color:var(--text)}
+.venue-meta{font-family:var(--mono);font-size:13px;color:var(--text-strong);margin-top:6px}
+.venue-desc{margin-top:8px;font-size:15px}
+.dl-list{margin-top:10px;display:flex;flex-direction:column;gap:2px;font-family:var(--mono);font-size:13px;color:var(--text)}
+.dl-list .dl.next{color:var(--accent)}
+.note{margin-top:8px;font-size:13px;font-style:italic;color:var(--text)}
+.tags{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-family:var(--mono);font-size:11px;padding:3px 10px;border-radius:999px;background:var(--accent-dim);color:var(--accent)}
+footer{border-top:1px solid var(--border);padding:32px 5vw;text-align:center;font-family:var(--mono);font-size:13px;color:var(--text)}
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="https://alihamzamalik.me/">~/alihamzamalik</a>
+  <nav>
+    <a href="https://alihamzamalik.me/">Home</a>
+    <a href="https://github.com/alirafiqmalik/sec-deadlines">GitHub</a>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <p class="kicker">// conference deadlines</p>
+    <h1>Deadlines</h1>
+    {{ content }}
+  </section>
 
-    <title>{{ site.title }}</title>
-    <meta name="description" content="{{ site.description }}">
-    <link rel="stylesheet" type="text/css" href="{{ "/static/css/bootstrap.min.css" | prepend:site.baseurl }}">
-    <link rel="stylesheet" type="text/css" href="{{ "/static/css/deadlines.css" | prepend:site.baseurl }}" media="screen,projection">
-    <link rel="shortcut icon" href="{{ "/static/img/favicon.png" | prepend:site.baseurl }}">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ "/static/js/jquery.countdown.min.js" | prepend:site.baseurl }}"></script>
-    <script src="{{ "/static/js/moment.min.js" | prepend:site.baseurl }}"></script>
-    <script src="{{ "/static/js/moment-timezone-with-data.min.js" | prepend:site.baseurl }}"></script>
-    <script src="{{ "/static/js/store.min.js" | prepend:site.baseurl }}"></script>
-
-  </head>
-  <body>
-    <div class="top-strip"></div>
-    <div class="container">
-      <div class="page-header">
-        <div class="row">
-          <div class="col-xs-12 col-sm-8">
-            <h1>
-              {{ site.title }}<br>
-              <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ site.description }}{% if site.twitter_hashtag %} #{{ site.twitter_hashtag }}{% endif %}" data-show-count="false" style="font-size:13px;">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-              <iframe src="https://ghbtns.com/github-btn.html?user={{ site.github_username }}&repo={{ site.github_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
-            </h1>
-          </div>
-          <div class="col-xs-12">
-            {{ site.description }}
-            To add/update a conference, <a target="_blank" href="//github.com/{{ site.github_username }}/{{ site.github_repo }}">send in a pull request</a>.
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-xs-12">
-            <!-- <div class="well"> -->
-              <form class="form-inline">
-                <div class="form-group">
-                  {% for type in site.data.types %}
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" id="{{ type.sub }}-checkbox" class=""> {{ type.name }}
-                    </label>
-                  </div>
-                  {% endfor %}
-                </div>
-              </form>
-            <!-- </div> -->
-          </div>
-        </div>
-      </div>
-      <div class="conf-container">
-        {% for conf in site.data.conferences %}
-        <div id="{{ conf.name | append: conf.year | slugify }}" class="conf {% for sub in conf.sub %} {{sub}} {% endfor %}">
-          <div class="row">
-              <div class="col-xs-12 col-sm-6">
-                <h2><a href="{{conf.link}}">{{conf.name}} {{conf.year}}</a></h2>
-                <div class="meta">
-                  {{ conf.description }}<br />
-                  {% if conf.dblp %}
-                  <a href="{{conf.dblp}}">DBLP</a><br />
-                  {% endif %}
-                  {{conf.date | replace: '-', '–'}} {% if conf.place %}// <a href="http://maps.google.com/?q={{conf.place}}">{{conf.place}}</a>{% endif %}<br />
-                </div>
-              </div>
-              <div class="col-xs-12 col-sm-6">
-                <span class="timer"></span>
-                <div class="deadline">
-                  <div>Deadline:
-                    <span class="deadline-time"></span>
-                    <div class="meta">
-                      {{ conf.comment }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-          </div>
-          <hr>
-        </div>
-        {% endfor %}
-      </div>
-      <footer>
-        Maintained by @<a href="//twitter.com/{{ site.twitter_username }}">{{ site.twitter_username }}</a>.
-      </footer>
+  <section class="controls" aria-label="Filters">
+    <div class="controls-row">
+      <input id="search" type="text" placeholder="Search venues..." aria-label="Search venues">
+      <label class="toggle" title="Venues whose deadlines have all passed are hidden automatically">
+        <input type="checkbox" id="show-past"> show past deadlines
+      </label>
     </div>
-    <script type="text/javascript" charset="utf-8">
-    $(function() {
-      deadlineByConf = {};
+    <div id="sub-filters" class="chips"></div>
+    <p class="counts" id="counts"></p>
+  </section>
 
-      {% for conf in site.data.conferences %}
-      {% assign conf_id = conf.name | append: conf.year | slugify %}
-      {% if conf.deadline == "TBA" %}
-      $('#{{ conf_id }} .timer').html("TBA");
-      $('#{{ conf_id }} .deadline-time').html("TBA");
-      deadlineByConf["{{ conf_id }}"] = moment();
-
-      {% else %}
-      var rawDeadlines = {{ conf.deadline | jsonify }} || [];
-      if (rawDeadlines.constructor !== Array) {
-        rawDeadlines = [rawDeadlines];
-      }
-      var parsedDeadlines = [];
-      while (rawDeadlines.length > 0) {
-        var rawDeadline = rawDeadlines.pop();
-        // check if deadline is template
-        if (rawDeadline.indexOf('%m') >= 0) {
-          for (var m = 1; m <= 12; m++) {
-            rawDeadlines.push(rawDeadline.replace('%m', m < 10 ? '0' + m : m));
-          }
-        } else if (rawDeadline.indexOf('%y') >= 0) {
-          year = parseInt(moment().year());
-          rawDeadlines.push(rawDeadline.replace('%y', year));
-          rawDeadlines.push(rawDeadline.replace('%y', year + 1));
-        } else {
-          // adjust date according to deadline timezone
-          {% if conf.timezone %}
-          var deadline = moment.tz(rawDeadline, "{{ conf.timezone }}");
-          {% else %}
-          var deadline = moment(rawDeadline + "-12:00");
-          {% endif %}
-          parsedDeadlines.push(deadline);
-        }
-      }
-
-      // check which deadline is closest
-      var confDeadline = parsedDeadlines[0];
-      var today = moment();
-      for (var i = 1; i < parsedDeadlines.length; i++) {
-        deadlineCandidate = parsedDeadlines[i];
-          if ((today.diff(deadlineCandidate) < 0 && today.diff(deadlineCandidate) > today.diff(confDeadline))) {
-          confDeadline = deadlineCandidate;
-        }
-      }
-
-      // render countdown timer
-      if (confDeadline) {
-
-        $('#{{ conf_id }} .timer').countdown(confDeadline.toDate(), function(event) {
-          var today = moment();
-          if (today.diff(confDeadline) <= 0) {
-            $(this).html(event.strftime('%D days %Hh %Mm %Ss'));
-          }
-        });
-
-        // check if date has passed, add 'past' class to it
-        if (today.diff(confDeadline) > 0) {
-          $('#{{ conf_id }}').addClass('past');
-        }
-
-        $('#{{ conf_id }} .deadline-time').html(confDeadline.local().format('D MMM YYYY, h:mm:ss a'));
-
-        deadlineByConf["{{ conf_id }}"] = confDeadline;
-      }
+  <section id="venues" class="venues">
+{% assign all_confs = site.data.conferences | default: empty %}
+{% if site.data.conferences_extra %}{% assign all_confs = all_confs | concat: site.data.conferences_extra %}{% endif %}
+{% for conf in all_confs %}
+    <article class="venue"
+      data-name="{{ conf.name }} {{ conf.year }} {{ conf.place }}{{ conf.location }}"
+      data-subs="{% if conf.sub %}{{ conf.sub | join: ',' }}{% endif %}"
+      data-tz="{{ conf.timezone | default: 'UTC-12' }}"
+      data-deadlines='{{ conf.deadline | jsonify }}'>
+      <div class="venue-top">
+        <div>
+          <h2>{% if conf.link %}<a href="{{ conf.link }}" target="_blank" rel="noopener">{{ conf.name }}</a>{% else %}{{ conf.name }}{% endif %}</h2>{% if conf.year %}<span class="year">'{{ conf.year | slice: 2, 2 }}</span>{% endif %}
+        </div>
+        <span class="countdown"></span>
+      </div>
+      {% if conf.date or conf.place or conf.location %}
+      <p class="venue-meta">{{ conf.date }}{% if conf.date and conf.place %} · {% endif %}{{ conf.place }}{% if conf.location %} · {{ conf.location }}{% endif %}</p>
       {% endif %}
-      {% endfor %}
+      {% if conf.description %}<p class="venue-desc">{{ conf.description }}</p>{% endif %}
+      <div class="dl-list">
+      {% if conf.deadline %}
+        {% assign first_dl = conf.deadline.first %}
+        {% if first_dl == nil %}
+        <span class="dl" data-dl="{{ conf.deadline }}">deadline: {{ conf.deadline }}</span>
+        {% else %}
+        {% for d in conf.deadline %}
+        <span class="dl" data-dl="{{ d }}">deadline{% if conf.deadline.size > 1 %} ({{ forloop.index }}/{{ conf.deadline.size }}){% endif %}: {{ d }} {% if conf.timezone %}{{ conf.timezone }}{% else %}AoE{% endif %}</span>
+        {% endfor %}
+        {% endif %}
+      {% else %}
+        <span class="dl">deadline: TBA</span>
+      {% endif %}
+      </div>
+      {% if conf.note %}<p class="note">{{ conf.note }}</p>{% endif %}
+      {% if conf.sub %}<div class="tags">{% for s in conf.sub %}<span class="tag">{{ s }}</span>{% endfor %}</div>{% endif %}
+    </article>
+{% endfor %}
+  </section>
+</main>
+<footer>
+  Created by <a href="https://alihamzamalik.me/">Ali Hamza Malik</a>.
+</footer>
+<script>
+(function () {
+  var venues = Array.prototype.slice.call(document.querySelectorAll('.venue'));
+  var showPast = document.getElementById('show-past');
+  var search = document.getElementById('search');
+  var chipsBox = document.getElementById('sub-filters');
+  var counts = document.getElementById('counts');
+  var activeSub = 'ALL';
 
-      // Reorder list
-      confs = $('.conf');
-      confs.detach().sort(function(a, b) {
-        return deadlineByConf[a.id] < deadlineByConf[b.id];
-      });
-      $('.conf-container').append(confs);
+  function parseTz(tz) {
+    if (!tz) return -720;
+    var m = /UTC\s*([+-])\s*(\d{1,2})(?::?(\d{2}))?/i.exec(tz);
+    if (m) {
+      var v = parseInt(m[2], 10) * 60 + (m[3] ? parseInt(m[3], 10) : 0);
+      return (m[1] === '-' ? -1 : 1) * v;
+    }
+    return -720; // default: Anywhere on Earth
+  }
 
-      // Set checkboxes
-      var conf_type_data = {{ site.data.types | jsonify }};
-      var all_subs = [];
-      var toggle_status = {};
-      for (var i = 0; i < conf_type_data.length; i++) {
-        all_subs[i] = conf_type_data[i]['sub'];
-        toggle_status[all_subs[i]] = false;
-      }
-      var subs = store.get('{{ site.domain }}');
-      if (subs === undefined) {
-        subs = all_subs;
-      }
-      for (var i = 0; i < subs.length; i++) {
-        $('#' + subs[i] + '-checkbox').prop('checked', true);
-        toggle_status[subs[i]] = true;
-      }
-      store.set('{{ site.domain }}', subs);
+  function parseDl(s, tzMin) {
+    var m = /(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{1,2}):(\d{2}))?/.exec(String(s));
+    if (!m) return null;
+    var h = m[4] ? parseInt(m[4], 10) : 23;
+    var mi = m[5] ? parseInt(m[5], 10) : 59;
+    return Date.UTC(+m[1], +m[2] - 1, +m[3], h, mi) - tzMin * 60000;
+  }
 
-      function update_conf_list() {
-        confs.each(function(i, conf) {
-          var conf = $(conf);
-          var show = false;
-          for (var i = 0; i < all_subs.length; i++) {
-            if(conf.hasClass(all_subs[i])) {
-              show = show | toggle_status[all_subs[i]];
-            }
-          }
-          if (show) {
-            conf.show();
-          } else {
-            conf.hide()
-          }
-        });
-      }
-      update_conf_list();
+  venues.forEach(function (v) {
+    var tzMin = parseTz(v.getAttribute('data-tz'));
+    var list = [];
+    try {
+      var p = JSON.parse(v.getAttribute('data-deadlines'));
+      if (p != null) list = Array.isArray(p) ? p : [p];
+    } catch (e) { list = []; }
+    var times = list.map(function (s) { return parseDl(s, tzMin); }).filter(function (t) { return t != null; });
+    var now = Date.now();
+    var future = times.filter(function (t) { return t > now; }).sort(function (a, b) { return a - b; });
+    v._times = times;
+    v._next = future.length ? future[0] : null;
+    v._hasDl = times.length > 0;
+    v._past = v._hasDl && !v._next;
 
-      // Event handler on checkbox change
-      $('form :checkbox').change(function(e) {
-        var checked = $(this).is(':checked');
-        var sub = $(this).prop('id').slice(0, -9);
-        toggle_status[sub] = checked;
-
-        if (checked == true) {
-          if (subs.indexOf(sub) < 0)
-            subs.push(sub);
-        }
-        else {
-          var idx = subs.indexOf(sub);
-          if (idx >= 0)
-            subs.splice(idx, 1);
-        }
-        store.set('{{ site.domain }}', subs);
-
-        update_conf_list();
-      });
+    var rows = v.querySelectorAll('.dl');
+    rows.forEach(function (r) {
+      var t = parseDl(r.getAttribute('data-dl'), tzMin);
+      if (t != null && t === v._next) r.classList.add('next');
     });
+  });
 
-    <!-- Google analytics -->
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', '{{ site.ga_id }}', 'auto');
-      ga('send', 'pageview');
-    </script>
-  </body>
+  // Sort: soonest upcoming deadline first, then TBA, then past.
+  var TBA_KEY = 9e14, PAST_KEY = 9e15;
+  venues.sort(function (a, b) {
+    var ka = a._next || (a._past ? PAST_KEY : TBA_KEY);
+    var kb = b._next || (b._past ? PAST_KEY : TBA_KEY);
+    return ka - kb;
+  });
+  var parent = document.getElementById('venues');
+  venues.forEach(function (v) { parent.appendChild(v); });
+
+  // Build subject filter chips from the data.
+  var subs = [];
+  venues.forEach(function (v) {
+    (v.getAttribute('data-subs') || '').split(',').forEach(function (s) {
+      s = s.trim();
+      if (s && subs.indexOf(s) === -1) subs.push(s);
+    });
+  });
+  subs.sort();
+  ['ALL'].concat(subs).forEach(function (s) {
+    var b = document.createElement('button');
+    b.className = 'chip' + (s === 'ALL' ? ' active' : '');
+    b.textContent = s;
+    b.addEventListener('click', function () {
+      activeSub = s;
+      chipsBox.querySelectorAll('.chip').forEach(function (c) { c.classList.toggle('active', c === b); });
+      apply();
+    });
+    chipsBox.appendChild(b);
+  });
+
+  function fmt(ms) {
+    if (ms <= 0) return 'closed';
+    var s = Math.floor(ms / 1000);
+    var d = Math.floor(s / 86400); s %= 86400;
+    var h = Math.floor(s / 3600); s %= 3600;
+    var m = Math.floor(s / 60); s %= 60;
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+    return d > 0 ? d + 'd ' + pad(h) + ':' + pad(m) + ':' + pad(s) : pad(h) + ':' + pad(m) + ':' + pad(s);
+  }
+
+  function tick() {
+    var now = Date.now();
+    venues.forEach(function (v) {
+      var el = v.querySelector('.countdown');
+      if (!el) return;
+      if (v._next) {
+        if (v._next <= now) { // deadline just passed; reclassify
+          v._past = true; v._next = null;
+          el.textContent = 'closed';
+          el.className = 'countdown past';
+        } else {
+          el.textContent = fmt(v._next - now);
+          el.className = 'countdown';
+        }
+      } else if (v._hasDl) {
+        el.textContent = 'closed';
+        el.className = 'countdown past';
+      } else {
+        el.textContent = 'TBA';
+        el.className = 'countdown tba';
+      }
+    });
+    apply();
+  }
+
+  function apply() {
+    var q = (search.value || '').toLowerCase();
+    var shown = 0, hiddenPast = 0;
+    venues.forEach(function (v) {
+      var matchSub = activeSub === 'ALL' || (v.getAttribute('data-subs') || '').split(',').map(function (x) { return x.trim(); }).indexOf(activeSub) !== -1;
+      var matchQ = !q || (v.getAttribute('data-name') || '').toLowerCase().indexOf(q) !== -1;
+      var hidePast = v._past && !showPast.checked; // auto-hide venues with passed deadlines
+      var visible = matchSub && matchQ && !hidePast;
+      v.classList.toggle('hidden', !visible);
+      if (visible) shown++;
+      if (hidePast && matchSub && matchQ) hiddenPast++;
+    });
+    counts.textContent = shown + ' venue' + (shown === 1 ? '' : 's') + ' shown · ' + hiddenPast + ' past hidden';
+  }
+
+  showPast.addEventListener('change', apply);
+  search.addEventListener('input', apply);
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+</body>
 </html>
