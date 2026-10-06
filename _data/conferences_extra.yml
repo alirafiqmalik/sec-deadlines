@@ -1,0 +1,65 @@
+# Additional venues maintained outside the upstream fork data.
+# The layout merges this file with _data/conferences.yml.
+# scripts/auto_find.py appends auto-discovered candidates here and prunes
+# expired entries.
+
+- name: NeurIPS
+  description: Conference on Neural Information Processing Systems
+  year: 2026
+  link: https://neurips.cc/Conferences/2026
+  deadline:
+    - '2026-05-04 23:59:59'
+    - '2026-05-06 23:59:59'
+  timezone: UTC-12
+  date: December 6-12, 2026
+  start_date: '2026-12-06'
+  end_date: '2026-12-12'
+  place: Sydney, Australia (+ satellite meetings in Atlanta & Paris)
+  note: Abstracts May 4, full papers May 6 (AoE)
+  sub: [AI]
+  type: conf
+
+- name: AAAI
+  description: AAAI Conference on Artificial Intelligence
+  year: 2027
+  link: https://aaai.org/conference/aaai/aaai-27/
+  deadline:
+    - '2026-07-21 23:59:59'
+    - '2026-07-28 23:59:59'
+  timezone: UTC-12
+  date: February 16-23, 2027
+  start_date: '2027-02-16'
+  end_date: '2027-02-23'
+  place: Montréal, Canada
+  note: Abstracts Jul 21, full papers Jul 28 (AoE); camera-ready Dec 14, 2026
+  sub: [AI]
+  type: conf
+
+- name: ICLR
+  description: International Conference on Learning Representations
+  year: 2027
+  link: https://iclr.cc/Conferences/2027
+  deadline:
+    - '2026-09-18 23:59:59'
+    - '2026-09-25 23:59:59'
+    - '2026-10-10 23:59:59'
+  timezone: UTC-12
+  date: April 26-30, 2027
+  start_date: '2027-04-26'
+  end_date: '2027-04-30'
+  place: San Francisco, California
+  note: Abstracts Sep 18, papers Sep 25; workshop proposals Oct 10 (AoE)
+  sub: [AI]
+  type: conf
+
+- name: ICML
+  description: International Conference on Machine Learning
+  year: 2027
+  link: https://icml.cc/
+  deadline: TBD
+  timezone: UTC-12
+  date: TBD (2026 edition was July 6-11 in Seoul)
+  place: TBA
+  note: 2027 dates, location, and deadlines to be announced
+  sub: [AI]
+  type: conf
