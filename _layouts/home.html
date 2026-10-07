@@ -24,8 +24,7 @@
           <div class="col-xs-12 col-sm-8">
             <h1>
               {{ site.title }}<br>
-              <a href="https://twitter.com/share" class="twitter-share-button" data-text="{{ site.description }}{% if site.twitter_hashtag %} #{{ site.twitter_hashtag }}{% endif %}" data-show-count="false" style="font-size:13px;">Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-              <iframe src="https://ghbtns.com/github-btn.html?user={{ site.github_username }}&repo={{ site.github_repo }}&type=star&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+              
             </h1>
           </div>
           <div class="col-xs-12">
@@ -48,6 +47,12 @@
                   {% endfor %}
                 </div>
               </form>
+                <div class="checkbox" style="margin-top: 10px;">
+                  <label>
+                    <input type="checkbox" id="show-past-checkbox"> <strong>Show past deadlines</strong>
+                  </label>
+                </div>
+
             <!-- </div> -->
           </div>
         </div>
@@ -83,7 +88,7 @@
         {% endfor %}
       </div>
       <footer>
-        Maintained by @<a href="//twitter.com/{{ site.twitter_username }}">{{ site.twitter_username }}</a>.
+        Created by <a href="https://alihamzamalik.me/">Ali Malik</a>.
       </footer>
     </div>
     <script type="text/javascript" charset="utf-8">
@@ -179,11 +184,22 @@
         $('#' + subs[i] + '-checkbox').prop('checked', true);
         toggle_status[subs[i]] = true;
       }
+
+      // Show past deadlines
+      var showPast = store.get('{{ site.domain }}-showpast');
+      if (showPast === undefined) { showPast = false; }
+      $('#show-past-checkbox').prop('checked', showPast);
+
       store.set('{{ site.domain }}', subs);
 
       function update_conf_list() {
+        var showPastVal = $('#show-past-checkbox').is(':checked');
         confs.each(function(i, conf) {
           var conf = $(conf);
+          if (!showPastVal && conf.hasClass('past')) {
+            conf.hide();
+            return;
+          }
           var show = false;
           for (var i = 0; i < all_subs.length; i++) {
             if(conf.hasClass(all_subs[i])) {
@@ -218,6 +234,11 @@
 
         update_conf_list();
       });
+      $('#show-past-checkbox').change(function(e) {
+        store.set('{{ site.domain }}-showpast', $(this).is(':checked'));
+        update_conf_list();
+      });
+
     });
 
     <!-- Google analytics -->

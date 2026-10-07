@@ -129,6 +129,13 @@ $(function() {
     $('#' + tag + '-checkbox').prop('checked', tags.includes(tag));
   }
 
+  // Show past deadlines toggle
+  var showPast = store.get('{{ site.domain }}-showpast') || false;
+  if (typeof showPast !== 'boolean') {
+    showPast = false;
+  }
+  $('#show-past-checkbox').prop('checked', showPast);
+
   function getSelectedFiltersFromDOM() {
     var selected = {
       filter1: new Set(),
@@ -158,10 +165,21 @@ $(function() {
 
   function updateConfList() {
     var selectedFilters = getSelectedFiltersFromDOM();
+    var showPastVal = $('#show-past-checkbox').is(':checked');
 
     $('.conf').each(function() {
       var conf = $(this);
       var show = true;
+
+      // Auto-hide past deadlines if not explicitly shown
+      if (!showPastVal && conf.hasClass('past')) {
+        show = false;
+      }
+
+      if (!show) {
+        conf.toggle(false);
+        return;
+      }
 
       Object.keys(selectedFilters).forEach(function(filterGroup) {
         if (!show) return;
@@ -190,5 +208,9 @@ $(function() {
     updateConfList();
   });
 
+  $('#show-past-checkbox').on('change', function() {
+    store.set('{{ site.domain }}-showpast', $(this).is(':checked'));
+    updateConfList();
+  });
   updateConfList();
 });
