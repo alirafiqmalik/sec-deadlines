@@ -2,11 +2,15 @@
 
 ## Auto-hide of past deadlines (client-side)
 
-`_layouts/home.html` tags every venue card with its deadline(s) and timezone.
+All venues with passed deadlines are **auto-hidden** by default. 
+
+`_layouts/home.html` and `static/js/main.js` tag each venue card with its deadline(s) and timezone.
 On page load, JavaScript computes the next upcoming deadline per venue:
 
-- Venues whose deadlines have **all passed** are hidden automatically.
-- The **show past deadlines** toggle in the filter bar reveals them.
+- Venues whose deadlines have **all passed** are hidden automatically by default.
+- The **Show past deadlines** toggle in the filter bar reveals them.
+- "Hide All Past Deadlines" button forces hiding of all expired venues.
+- "Delete Expired Venues" button removes expired venues from view (client-side, session only).
 - Venues with no parseable deadline show a `TBA` badge and stay visible.
 - Cards are sorted by soonest upcoming deadline; a live countdown ticks
   every second and re-hides a venue the moment its last deadline passes.
@@ -16,7 +20,7 @@ On page load, JavaScript computes the next upcoming deadline per venue:
 `.github/workflows/auto-find.yml` runs `scripts/auto_find.py` weekly
 (Mondays 03:17 UTC) and on manual dispatch. It does two things:
 
-1. **Auto-delete stale venues** — entries whose deadlines all passed more
+1. **Auto-delete stale venues (server-side)** — entries whose deadlines all passed more
    than 90 days ago are removed from `_data/conferences.yml` and
    `_data/conferences_extra.yml` and committed directly to `master`.
 2. **Discover new venues** — candidate conferences are pulled from public
