@@ -89,7 +89,13 @@
                 {% endfor %}
               </div>
             </form>
-              <div class="form-group" style="margin-top: 10px;">
+              <div class="form-group" style="margin-top: 10px; padding: 10px; background: #f5f5f5; border-radius: 4px;">
+                <strong>Management:</strong>
+                <button type="button" id="hide-past-btn" class="btn btn-default btn-xs" style="margin-left: 10px;">Hide All Past Deadlines</button>
+                <button type="button" id="delete-expired-btn" class="btn btn-danger btn-xs" style="margin-left: 5px;" title="Remove venues with all deadlines passed from view">Delete Expired Venues</button>
+                <small style="display: block; margin-top: 5px; color: #666;">Auto-hide keeps expired venues collapsed by default. "Delete Expired" removes them from the current view until page refresh.</small>
+              </div>
+
                 <div class="checkbox">
                   <label>
                     <input type="checkbox" id="show-past-checkbox"> <strong>Show past deadlines</strong> (auto-hide expired)

@@ -212,5 +212,17 @@ $(function() {
     store.set('{{ site.domain }}-showpast', $(this).is(':checked'));
     updateConfList();
   });
+
+  $('#hide-past-btn').on('click', function() {
+    $('#show-past-checkbox').prop('checked', false);
+    store.set('{{ site.domain }}-showpast', false);
+    updateConfList();
+  });
+
+  $('#delete-expired-btn').on('click', function() {
+    if (confirm('Delete all venues with passed deadlines? This removes them from view for this session.')) {
+      $('.conf.past').remove();
+    }
+  });
   updateConfList();
 });
