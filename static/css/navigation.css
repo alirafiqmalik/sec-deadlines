@@ -1,0 +1,290 @@
+/* Scoped adaptation of the main site's floating navigation. */
+:root {
+  --nav-float-top: 1.35rem;
+  --nav-float-gutter: clamp(1.35rem, calc(2vw + 0.5rem), 1.85rem);
+  --nav-float-height: 4.25rem;
+  --nav-float-radius: 2rem;
+  --nav-offset: calc(var(--nav-float-top) + var(--nav-float-height) + 1rem);
+}
+
+body {
+  padding-top: var(--nav-offset);
+}
+
+.site-nav {
+  position: fixed;
+  top: var(--nav-float-top);
+  left: var(--nav-float-gutter);
+  right: var(--nav-float-gutter);
+  z-index: 50;
+}
+
+.site-nav [hidden] {
+  display: none;
+}
+
+.site-nav a {
+  border-bottom: none;
+}
+
+.site-nav button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.site-nav .nav-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--nav-float-height);
+  padding: 0.5rem 1.25rem;
+  background: rgba(26, 26, 26, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-muted);
+  border-radius: var(--nav-float-radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.38), 0 2px 8px rgba(0, 0, 0, 0.22);
+}
+
+.site-nav .nav-logo-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 44px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  color: var(--text-primary);
+}
+
+.site-nav .nav-prompt-glyph {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.site-nav .nav-prompt-path {
+  color: var(--text-secondary);
+}
+
+.site-nav .nav-prompt-cwd {
+  color: var(--text-primary);
+}
+
+.site-nav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.site-nav .nav-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.site-nav .nav-link:hover {
+  color: var(--text-primary);
+}
+
+.site-nav .nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-height: 44px;
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(245, 245, 245, 0.35);
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.25;
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.site-nav .nav-cta:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.site-nav .nav-dropdown,
+.site-nav .nav-dropdown-submenu {
+  position: relative;
+}
+
+.site-nav .nav-dropdown-menu,
+.site-nav .nav-dropdown-submenu-menu {
+  position: absolute;
+  min-width: 10rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.25rem;
+  background: var(--bg-card);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+}
+
+.site-nav .nav-dropdown-menu {
+  top: calc(100% + 0.75rem);
+  right: 0;
+  max-height: calc(100vh - var(--nav-offset) - 1.5rem);
+  max-height: calc(100dvh - var(--nav-offset) - 1.5rem);
+  overflow-y: auto;
+}
+
+.site-nav .nav-dropdown-item {
+  display: block;
+  min-height: 40px;
+  padding: 0.625rem 0.875rem;
+  border-radius: 2px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.site-nav .nav-dropdown-item:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.site-nav [aria-current="page"] {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.site-nav .nav-dropdown-submenu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+}
+
+.site-nav .nav-dropdown-submenu-menu {
+  /* Keep Tools in the scrollable disclosure on short screens. */
+  position: static;
+  min-width: 0;
+  box-shadow: none;
+}
+
+.site-nav .nav-dropdown-toggle[aria-expanded="true"] .nav-dropdown-chevron {
+  transform: rotate(180deg);
+}
+
+.site-nav .nav-dropdown-submenu-toggle[aria-expanded="true"] .nav-dropdown-submenu-chevron {
+  transform: rotate(90deg);
+}
+
+.site-nav .mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 999px;
+  color: var(--text-primary);
+  background: transparent;
+}
+
+.site-nav .mobile-menu-btn:hover {
+  background: var(--bg-elevated);
+}
+
+.site-nav .mobile-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  right: 0;
+  max-height: calc(100vh - var(--nav-offset) - 1rem);
+  max-height: calc(100dvh - var(--nav-offset) - 1rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 1.25rem;
+  background: var(--bg-card);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.site-nav .mobile-menu .nav-link {
+  display: flex;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+
+.site-nav .mobile-more-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding-top: 0.75rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.site-nav .mobile-more-label {
+  padding: 0.25rem 0 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.site-nav .mobile-tools-label {
+  margin-top: 0.5rem;
+}
+
+.site-nav .mobile-menu .mobile-tools-link {
+  padding-left: 0.75rem;
+}
+
+.site-nav :focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 47.999rem) {
+  :root {
+    --nav-float-top: 1.1rem;
+    --nav-float-gutter: 1.4rem;
+    --nav-float-height: 3.75rem;
+    --nav-float-radius: 1.35rem;
+  }
+
+  .site-nav .nav-content {
+    padding: 0.4375rem 1rem;
+  }
+
+  .site-nav .nav-links {
+    display: none;
+  }
+
+  .site-nav .mobile-menu-btn {
+    display: inline-flex;
+  }
+}
+
+@media (max-width: 30rem) {
+  .site-nav .nav-prompt-cwd {
+    display: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .site-nav :focus-visible {
+    outline-color: Highlight;
+  }
+}

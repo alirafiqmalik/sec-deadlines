@@ -1,0 +1,63 @@
+<!-- Adapted from alirafiqmalik/alirafiqmalik.github.io/_includes/navigation.html. -->
+<nav class="site-nav" aria-label="Main site">
+  <div class="nav-content">
+    <a class="nav-logo-prompt" href="{{ site.domain }}/" aria-label="alihamza@malik — Ali Hamza Malik home" title="Ali Hamza Malik — home">
+      <span class="nav-prompt-user">alihamza@malik</span><span class="nav-prompt-glyph" aria-hidden="true">❯</span><span class="nav-prompt-path">~/<span class="nav-prompt-cwd">sec-deadlines</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="{{ site.domain }}/#about" class="nav-link">About</a>
+      <a href="{{ site.domain }}/#publications" class="nav-link">Publications</a>
+      <a href="{{ site.domain }}/#contact" class="nav-link">Contact</a>
+      <div class="nav-dropdown">
+        <button type="button" class="nav-cta nav-dropdown-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-more-links">
+          More
+          <svg class="nav-dropdown-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="nav-dropdown-menu" id="site-more-links" hidden>
+          <a href="{{ site.domain }}/history/" class="nav-dropdown-item">History</a>
+          <a href="{{ site.domain }}/blog/" class="nav-dropdown-item">Blog</a>
+          <a href="{{ site.domain }}/cv/" class="nav-dropdown-item">CV</a>
+          <a href="{{ site.domain }}/#experience" class="nav-dropdown-item">Experience</a>
+          <a href="{{ site.domain }}/projects/" class="nav-dropdown-item">Projects</a>
+          <div class="nav-dropdown-submenu">
+            <button type="button" class="nav-dropdown-item nav-dropdown-submenu-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-tool-links">
+              Tools
+              <svg class="nav-dropdown-submenu-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+            <div class="nav-dropdown-submenu-menu" id="site-tool-links" hidden>
+              <a href="{{ site.domain }}{{ site.baseurl }}/" class="nav-dropdown-item" aria-current="page">Deadlines</a>
+              <a href="{{ site.domain }}/fsm-tool/" class="nav-dropdown-item">drawFSMs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="mobile-menu-btn" data-nav-toggle aria-label="Toggle menu" aria-expanded="false" aria-controls="site-mobile-links">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="4" x2="20" y1="12" y2="12"></line>
+        <line x1="4" x2="20" y1="6" y2="6"></line>
+        <line x1="4" x2="20" y1="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="site-mobile-links" hidden>
+    <a href="{{ site.domain }}/#about" class="nav-link">About</a>
+    <a href="{{ site.domain }}/#publications" class="nav-link">Publications</a>
+    <a href="{{ site.domain }}/#contact" class="nav-link">Contact</a>
+    <div class="mobile-more-group">
+      <span class="mobile-more-label">More</span>
+      <a href="{{ site.domain }}/history/" class="nav-link">History</a>
+      <a href="{{ site.domain }}/blog/" class="nav-link">Blog</a>
+      <a href="{{ site.domain }}/cv/" class="nav-link">CV</a>
+      <a href="{{ site.domain }}/#experience" class="nav-link">Experience</a>
+      <a href="{{ site.domain }}/projects/" class="nav-link">Projects</a>
+      <span class="mobile-more-label mobile-tools-label">Tools</span>
+      <a href="{{ site.domain }}{{ site.baseurl }}/" class="nav-link mobile-tools-link" aria-current="page">Deadlines</a>
+      <a href="{{ site.domain }}/fsm-tool/" class="nav-link mobile-tools-link">drawFSMs</a>
+    </div>
+  </div>
+</nav>
