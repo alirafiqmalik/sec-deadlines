@@ -102,6 +102,36 @@ describe("public endpoint protection", () => {
   it("fails closed when deployment secrets are missing", async () => {
     expect((await worker.fetch(request(data()), { ...config(), TURNSTILE_SECRET: undefined })).status).toBe(503);
   });
+
+  it("dispatches at most five distinct venues through the HTTP endpoint", async () => {
+    const spy = external(), cfg = config();
+    const responses = await Promise.all(Array.from({ length: 8 }, (_, i) => {
+      const submission = data(); submission.payload = payload(`HTTP Venue ${i}`);
+      return worker.fetch(request(submission), cfg);
+    }));
+    expect(responses.filter(response => response.status === 202)).toHaveLength(5);
+    expect(responses.filter(response => response.status === 429)).toHaveLength(3);
+    expect(spy.mock.calls.filter(([url]) => String(url).includes("api.github.com"))).toHaveLength(5);
+  });
+
+  it("accepts only signed callbacks with this repository's PR URL and protects status receipts", async () => {
+    external();
+    const submission = data(), cfg = config();
+    const accepted = await (await worker.fetch(request(submission), cfg)).json();
+    async function callback(prUrl) {
+      const raw = JSON.stringify({ id: submission.id, day: accepted.day, status: "created", prUrl });
+      return worker.fetch(request(raw, { "X-Submission-Signature": await sign(raw, cfg.SUBMISSION_SIGNING_KEY) }, "/internal/result"), cfg);
+    }
+    expect((await callback("https://attacker.org/pull/1")).status).toBe(400);
+    const prUrl = `https://github.com/${cfg.GITHUB_REPOSITORY}/pull/7`;
+    expect((await callback(prUrl)).status).toBe(200);
+    const url = `https://worker.example/api/status?id=${submission.id}&day=${accepted.day}`;
+    const read = receipt => worker.fetch(new Request(url, { headers: { Origin: origin, "X-Submission-Receipt": receipt } }), cfg);
+    expect((await read("00".repeat(32))).status).toBe(404);
+    const response = await read(submission.receipt);
+    expect(response.headers.get("Access-Control-Allow-Origin")).toBe(origin);
+    expect(await response.json()).toEqual({ status: "created", prUrl });
+  });
 });
 
 describe("untrusted venue data", () => {
