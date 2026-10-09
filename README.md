@@ -2,6 +2,11 @@
 
 Based on [ai-deadlines](https://aideadlin.es) by @abshkdz
 
+## Venue submissions
+
+Use **Add Venue** beside **Delete Expired Venues** to propose a venue for review.
+See [venue submission setup, security checks, and tests](VENUE_SUBMISSIONS.md).
+
 ## Is my entry in scope?
 
 This page is meant to host academic conference or workshop deadlines.

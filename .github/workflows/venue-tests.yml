@@ -1,0 +1,42 @@
+name: Venue submission tests
+
+on:
+  push:
+    branches: [master]
+    paths: ["backend/**", "scripts/**", "tests/**", "static/js/**", "static/css/add-venue.css", "_includes/add-venue.html", "index.html", "_config.yml", ".github/workflows/venue-*.yml"]
+  pull_request:
+    paths: ["backend/**", "scripts/**", "tests/**", "static/js/**", "static/css/add-venue.css", "_includes/add-venue.html", "index.html", "_config.yml", ".github/workflows/venue-*.yml"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+      - name: Install pinned dependencies
+        run: |
+          python -m pip install -r scripts/requirements-venue.txt
+          npm ci --prefix backend
+          sudo gem install jekyll -v 4.4.1 --no-document
+      - name: Run submission and PR security tests
+        run: python -m unittest discover -s tests -v
+      - name: Test Worker and build deployment bundle
+        working-directory: backend
+        run: |
+          npm test
+          npm run check
+      - name: Install browser and test popup and existing deadline controls
+        working-directory: backend
+        run: |
+          npx --no-install playwright install --with-deps chromium
+          npm run test:ui
