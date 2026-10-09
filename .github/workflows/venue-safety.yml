@@ -1,0 +1,30 @@
+name: Venue data safety
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, edited]
+
+permissions: {}
+
+jobs:
+  data-safety:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+      statuses: write
+    steps:
+      # Trusted base commit only. Never check out the PR head or run its scripts.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          persist-credentials: false
+      - name: Install pinned data parser
+        run: python -m pip install -r scripts/requirements-venue.txt
+      - name: Test trusted submission validation
+        run: python -m unittest discover -s tests -v
+      - name: Inspect data and submission scope without executing PR code
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python scripts/check_venue_pr.py

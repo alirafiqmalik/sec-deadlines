@@ -25,7 +25,7 @@ class InvalidSubmission(ValueError):
 def text(value, field, maximum, minimum=1):
     if not isinstance(value, str) or not minimum <= len(value) <= maximum or value != value.strip():
         raise InvalidSubmission(f"{field}: enter {minimum}–{maximum} characters without surrounding spaces.")
-    if any(unicodedata.category(c).startswith("C") for c in value) or any(s in value for s in ("<", ">", "{{", "{%", "}}", "%}")):
+    if any(unicodedata.category(c).startswith("C") or c in "\u2028\u2029" for c in value) or any(s in value for s in ("<", ">", "{{", "{%", "}}", "%}")):
         raise InvalidSubmission(f"{field}: HTML, templates, and control characters are not allowed.")
     return value
 
