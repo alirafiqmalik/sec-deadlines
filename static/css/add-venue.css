@@ -1,0 +1,46 @@
+#add-venue-dialog {
+  width: min(680px, calc(100% - 24px));
+  max-height: calc(100dvh - 32px);
+  padding: 24px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  background: var(--bg-card);
+}
+#add-venue-dialog::backdrop { background: rgba(0, 0, 0, .75); }
+.venue-dialog-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.venue-dialog-heading h2 { font-size: 24px; }
+.venue-hint { color: var(--text-secondary); font-size: 14px; }
+.venue-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 16px; }
+.venue-wide { grid-column: 1 / -1; }
+#add-venue-form label { display: block; font-weight: 500; }
+#add-venue-form input:not([type=checkbox]), #add-venue-form textarea, #add-venue-form select {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg);
+  color: var(--text-primary);
+  font: inherit;
+}
+#add-venue-form textarea { resize: vertical; }
+#add-venue-form textarea:focus-visible, #add-venue-form select:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+#venue-fields:disabled { opacity: .65; }
+.venue-tags { margin: 16px 0; }
+.venue-tags legend { margin-bottom: 8px; border-color: var(--border); color: var(--text-primary); font-size: 16px; }
+#add-venue-form .venue-tags label { display: inline-flex; align-items: center; gap: 6px; margin: 0 12px 8px 0; min-height: 28px; }
+.venue-tags input { accent-color: var(--accent); margin: 0; }
+#venue-verification { margin-top: 16px; min-height: 1px; }
+#venue-status { margin: 16px 0 8px; }
+#venue-status[data-error=true] { color: var(--danger); }
+.venue-form-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+#add-venue-dialog button { min-height: 36px; }
+#venue-submit:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+#add-venue-dialog [hidden] { display: none !important; }
+@media (max-width: 540px) {
+  #add-venue-dialog { padding: 16px; }
+  .venue-form-grid { grid-template-columns: 1fr; }
+}

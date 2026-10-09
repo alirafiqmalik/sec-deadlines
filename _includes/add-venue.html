@@ -1,0 +1,42 @@
+<dialog id="add-venue-dialog" aria-labelledby="add-venue-title" aria-describedby="add-venue-intro" data-api="{{ site.venue_submission_api | escape }}" data-repository="alirafiqmalik/sec-deadlines">
+  <div class="venue-dialog-heading">
+    <h2 id="add-venue-title">Add a venue</h2>
+    <button type="button" id="venue-close" class="btn btn-default" aria-label="Close venue form">Close</button>
+  </div>
+  <p id="add-venue-intro">Submit a venue for review. Its details will be public in a GitHub pull request. It appears here after Ali merges the request.</p>
+  <p class="venue-hint">Five submissions are accepted per day across all visitors. The limit resets at midnight UTC. Avoid personal or private information.</p>
+  <form id="add-venue-form">
+    <fieldset id="venue-fields" disabled>
+      <div class="venue-form-grid">
+        <label>Venue name <input name="name" required maxlength="80" autocomplete="off" placeholder="ExampleConf" autofocus></label>
+        <label>Year <input name="year" type="number" required step="1"></label>
+        <label class="venue-wide">Official website <input name="link" type="url" required maxlength="400" placeholder="https://conference.org/"></label>
+        <label class="venue-wide">Call for papers or deadline source <input name="source" type="url" required maxlength="400" placeholder="https://conference.org/cfp"></label>
+        <label>Event dates <input name="date" required maxlength="100" placeholder="June 14–18, 2027, or TBA"></label>
+        <label>Location <input name="place" required maxlength="120" placeholder="City, country, or Online"></label>
+        <label class="venue-wide">Submission deadlines <textarea name="deadline" required rows="3" aria-describedby="venue-deadline-hint">TBA</textarea></label>
+        <p id="venue-deadline-hint" class="venue-hint venue-wide">One deadline per line: YYYY-MM-DD HH:mm. Use 24-hour time in the timezone below. Enter up to eight deadlines, or TBA alone.</p>
+        <label>Timezone <input name="timezone" required maxlength="64" value="Etc/GMT+12" aria-describedby="venue-timezone-hint"></label>
+        <p id="venue-timezone-hint" class="venue-hint">Use an IANA timezone, such as America/New_York. Etc/GMT+12 means Anywhere on Earth (UTC−12).</p>
+        <label class="venue-wide">Description (optional) <input name="description" maxlength="240" placeholder="Full venue name"></label>
+        <label class="venue-wide">DBLP link (optional) <input name="dblp" type="url" maxlength="400" placeholder="https://dblp.org/db/conf/..."></label>
+        <label class="venue-wide">Notes (optional) <textarea name="comment" maxlength="600" rows="2" placeholder="Deadline round, abstract deadline, or other relevant notes"></textarea></label>
+      </div>
+      <fieldset class="venue-tags"><legend>Research domain (select at least one)</legend>
+        {% for type in site.data.filters.filter1 %}<label><input type="checkbox" name="venue-topic" value="{{ type.tag | escape }}"> {{ type.name | escape }}</label>{% endfor %}
+      </fieldset>
+      <fieldset class="venue-tags"><legend>Publication type (select at least one)</legend>
+        {% for type in site.data.filters.filter2 %}<label><input type="checkbox" name="venue-kind" value="{{ type.tag | escape }}"> {{ type.name | escape }}</label>{% endfor %}
+      </fieldset>
+      <label>CORE ranking (optional) <select name="rank"><option value="">Not specified</option>{% for type in site.data.filters.filter3 %}<option value="{{ type.tag | escape }}">{{ type.name | escape }}</option>{% endfor %}</select></label>
+    </fieldset>
+    <div id="venue-verification"></div>
+    <p id="venue-status" role="status" aria-live="polite" tabindex="-1">Loading submission service…</p>
+    <a id="venue-pr-link" target="_blank" rel="noopener noreferrer" hidden>View your pull request on GitHub</a>
+    <div class="venue-form-actions">
+      <button id="venue-submit" type="submit" class="btn btn-default" disabled>Submit for review</button>
+      <button id="venue-check" type="button" class="btn btn-default" hidden>Check status</button>
+      <button id="venue-another" type="button" class="btn btn-default" hidden>Add another venue</button>
+    </div>
+  </form>
+</dialog>
