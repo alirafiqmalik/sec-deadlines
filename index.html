@@ -1,6 +1,7 @@
 ---
 ---
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,8 +19,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
   <body>
+    <a class="skip-link" href="#deadlines-content">Skip to deadlines</a>
     {% include navigation.html %}
-    <div class="container">
+    <main class="container" id="deadlines-content" tabindex="-1">
       <div class="page-header">
         <div class="row">
           <div class="col-xs-12 col-sm-8">
@@ -30,8 +32,8 @@
           </div>
           <div class="col-xs-12">
             {{ site.description }}
-            <p>To add/update a conference, <a target="_blank" href="//github.com/{{ site.github_username }}/{{ site.github_repo }}">send in a pull request</a>.
-            <p>Last update: {{ site.time | date: "%-d %B %Y" }}
+            <p>To add/update a conference, <a target="_blank" rel="noopener noreferrer" href="//github.com/{{ site.github_username }}/{{ site.github_repo }}">send in a pull request</a>.</p>
+            <p>Last update: {{ site.time | date: "%-d %B %Y" }}</p>
             <div>
                 <p>
                     Deadlines as iCal: 
@@ -83,7 +85,7 @@
               </div>
               <br>
               <div class="form-group">
-                <span class="mytitle">⭐ <b><a href="https://portal.core.edu.au/conf-ranks/" target="_blank">CORE</a> Ranking</b></span>
+                <span class="mytitle">⭐ <b><a href="https://portal.core.edu.au/conf-ranks/" target="_blank" rel="noopener noreferrer">CORE</a> Ranking</b></span>
                 {% for type in site.data.filters.filter3 %}
                 <div class="checkbox">
                   <label>
@@ -158,7 +160,7 @@
                 Created by <a href="https://alihamzamalik.me/">Ali Malik</a>.
         <!-- Maintained by <a href="https://clementfung.github.io/">Clement Fung</a>. Created by <a href="//twitter.com/{{ site.twitter_username }}">Bogdan Kulynych</a>. -->
       </footer>
-    </div>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" integrity="sha512-lteuRD+aUENrZPTXWFRPTBcDDxIGWe5uu0apPEn+3ZKYDwDaEErIK9rvR0QzUGmUQ55KFE2RqGTVoZsKctGMVw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
