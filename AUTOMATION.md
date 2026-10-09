@@ -2,18 +2,19 @@
 
 ## Auto-hide of past deadlines (client-side)
 
-All venues with passed deadlines are **auto-hidden** by default. 
+Past deadline cards are hidden by default.
 
-`_layouts/home.html` and `static/js/main.js` tag each venue card with its deadline(s) and timezone.
-On page load, JavaScript computes the next upcoming deadline per venue:
+`index.html` renders one card per deadline. `static/js/main.js` reads each
+deadline and timezone, sorts the cards, and updates their status:
 
-- Venues whose deadlines have **all passed** are hidden automatically by default.
+- Past deadline cards are hidden automatically by default.
 - The **Show past deadlines** toggle in the filter bar reveals them.
-- "Hide All Past Deadlines" button forces hiding of all expired venues.
-- "Delete Expired Venues" button removes expired venues from view (client-side, session only).
-- Venues with no parseable deadline show a `TBA` badge and stay visible.
+- "Hide All Past Deadlines" turns off that toggle.
+- "Delete Expired Venues" removes a venue from the current page only when
+  all its deadlines have passed. A reload restores it.
+- Venues with a `TBA` deadline show a `TBA` badge and stay visible.
 - Cards are sorted by soonest upcoming deadline; a live countdown ticks
-  every second and re-hides a venue the moment its last deadline passes.
+  every second and past cards are hidden when their deadlines pass.
 
 ## Auto-Find (GitHub Actions)
 
@@ -33,8 +34,7 @@ Both steps use the built-in `GITHUB_TOKEN`; no extra secrets are required.
 
 ## Adding or updating a venue
 
-Add an entry to `_data/conferences_extra.yml` (or edit
-`_data/conferences.yml`):
+Add a verified entry to `_data/conferences.yml`:
 
 ```yaml
 - name: CCS
@@ -42,12 +42,13 @@ Add an entry to `_data/conferences_extra.yml` (or edit
   year: 2027
   link: https://example.org/
   deadline: ['2027-01-14 23:59', '2027-04-29 23:59']  # multiple cycles ok
-  timezone: UTC-12        # AoE; or UTC+2, UTC-5, ...
+  timezone: Etc/GMT+12   # AoE; omit for the same default
   date: October 2027
   place: City, Country
-  note: optional note
-  sub: [SEC]
+  comment: optional note
+  tags: [SEC, CONF]
 ```
 
-Leave `deadline:` empty for TBA. The site merges both data files at build
-time; no layout changes are needed.
+Use `deadline: ['TBA']` until the organizer announces a date. The page and
+calendar feeds render only `_data/conferences.yml`; auto-found candidates in
+`_data/conferences_extra.yml` must be verified and moved there first.

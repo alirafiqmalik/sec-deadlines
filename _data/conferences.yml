@@ -1,11 +1,75 @@
-# Security and Privacy
+# Verified conference deadlines
 
+- name: ICML
+  description: International Conference on Machine Learning
+  year: 2027
+  link: https://icml.cc/Conferences/FutureMeetings
+  deadline: ["TBA"]
+  date: TBA (2027)
+  place: South America
+  comment: The organizer has announced the region; city, dates, and submission deadline are pending.
+  tags: [AI, CONF]
 
+- name: NeurIPS
+  description: Conference on Neural Information Processing Systems
+  year: 2026
+  link: https://neurips.cc/Conferences/2026
+  deadline: ["2026-05-06 23:59"]
+  date: December 6-12, 2026
+  place: Sydney, Australia
+  comment: Main-track papers closed May 6 AoE; Atlanta and Paris satellite events run December 9-13.
+  tags: [AI, CONF]
 
+- name: ICLR
+  description: International Conference on Learning Representations
+  year: 2027
+  link: https://iclr.cc/Conferences/2027
+  deadline: ["2026-09-25 23:59"]
+  date: April 26-30, 2027
+  place: San Francisco, California, USA
+  comment: Main-track paper submissions closed September 25, 2026 AoE; abstracts were due September 18.
+  tags: [AI, CONF]
 
+- name: MLSys
+  description: Conference on Machine Learning and Systems
+  year: 2027
+  link: https://mlsys.org/Conferences/2027
+  deadline: ["2026-10-30 12:00"]
+  timezone: America/Los_Angeles
+  date: June 21-25, 2027
+  place: Bellevue, Washington, USA
+  comment: Research and industry-track papers are due October 30 at noon PDT; main sessions run June 22-24.
+  tags: [AI, CONF]
 
+- name: CVPR
+  description: IEEE/CVF Conference on Computer Vision and Pattern Recognition
+  year: 2027
+  link: https://cvpr.thecvf.com/Conferences/2027
+  deadline: ["2026-11-16 23:59"]
+  date: June 20-25, 2027
+  place: Seattle, Washington, USA
+  comment: Paper registration is due November 10; full papers are due November 16 AoE. Main sessions run June 22-25.
+  tags: [AI, CONF]
 
+- name: ICCV
+  description: IEEE/CVF International Conference on Computer Vision
+  year: 2027
+  link: https://iccv.thecvf.com/Conferences/2027
+  deadline: ["TBA"]
+  date: October 2-8, 2027
+  place: Hong Kong Convention and Exhibition Centre, Hong Kong
+  comment: Submission deadline has not been announced.
+  tags: [AI, CONF]
 
+- name: ECCV
+  description: European Conference on Computer Vision
+  year: 2028
+  link: https://www.ecva.net/
+  deadline: ["TBA"]
+  date: TBA (2028)
+  place: TBA
+  comment: ECCV meets in even-numbered years; 2028 dates, venue, and deadline are pending.
+  tags: [AI, CONF]
 
 - name: USEC
   year: 2027

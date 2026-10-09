@@ -80,7 +80,9 @@ The _deadline_ field can contain:
 
 On the page, all deadlines are displayed in viewer's local time (that's a feature).
 
-_Note:_ If the deadline hour is `{h}:00`, it will be automatically translated into `{h-1}:59:59` to avoid pain and confusion when it happens to be midnight in local time.
+For an unpublished deadline, use `deadline: ["TBA"]`. Such entries appear on the
+page but do not create calendar events. Published times ending in `:00` are
+kept exact; times ending in `:59` count through the last second of that minute.
 
 ### Timezones
 
