@@ -6,8 +6,7 @@ $(function() {
   {% for conf in site.data.conferences %}
   // {{ conf.name }} {{ conf.year }}
   {% if conf.deadline[0] == "TBA" %}
-  {% assign conf_type = conf.tags | join: "-" | slugify %}
-  {% assign conf_id = conf.name | append: conf.year | append: '-0' | append: conf_type | slugify %}
+  {% assign conf_id = conf.name | append: conf.year | append: '-0' | slugify %}
   $('#{{ conf_id }} .timer').html("TBA");
   $('#{{ conf_id }} .deadline-time').html("TBA");
   deadlineByConf["{{ conf_id }}"] = null;
@@ -34,9 +33,6 @@ $(function() {
     {% endif %}
 
     // post-process date
-    if (deadline.minutes() === 0) {
-      deadline.subtract(1, 'seconds');
-    }
     if (deadline.minutes() === 59) {
       deadline.seconds(59);
     }
@@ -203,6 +199,27 @@ $(function() {
     });
   }
 
+  function updatePastDeadlines() {
+    var now = moment();
+    var changed = false;
+
+    Object.keys(deadlineByConf).forEach(function(id) {
+      var deadline = deadlineByConf[id];
+      if (!deadline) return;
+
+      var conf = $('#' + id);
+      if (!conf.length) return;
+
+      var isPast = now.isAfter(deadline);
+      if (conf.hasClass('past') !== isPast) {
+        conf.toggleClass('past', isPast);
+        changed = true;
+      }
+    });
+
+    if (changed) updateConfList();
+  }
+
   $('.filter-checkbox').on('change', function() {
     saveSelectedTags();
     updateConfList();
@@ -220,9 +237,22 @@ $(function() {
   });
 
   $('#delete-expired-btn').on('click', function() {
-    if (confirm('Delete all venues with passed deadlines? This removes them from view for this session.')) {
-      $('.conf.past').remove();
+    if (confirm('Remove venues whose deadlines have all passed from this page until reload?')) {
+      var venues = {};
+      $('.conf').each(function() {
+        var venueId = $(this).data('venue-id');
+        if (!venues[venueId]) venues[venueId] = $();
+        venues[venueId] = venues[venueId].add(this);
+      });
+
+      Object.keys(venues).forEach(function(venueId) {
+        if (venues[venueId].filter(':not(.past)').length === 0) {
+          venues[venueId].remove();
+        }
+      });
     }
   });
+  updatePastDeadlines();
+  setInterval(updatePastDeadlines, 1000);
   updateConfList();
 });

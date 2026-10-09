@@ -93,16 +93,14 @@
                 <strong>Management:</strong>
                 <button type="button" id="hide-past-btn" class="btn btn-default btn-xs" style="margin-left: 10px;">Hide All Past Deadlines</button>
                 <button type="button" id="delete-expired-btn" class="btn btn-danger btn-xs" style="margin-left: 5px;" title="Remove venues with all deadlines passed from view">Delete Expired Venues</button>
-                <small style="display: block; margin-top: 5px; color: #666;">Auto-hide keeps expired venues collapsed by default. "Delete Expired" removes them from the current view until page refresh.</small>
+                <small style="display: block; margin-top: 5px; color: #666;">Past deadlines are hidden by default. "Delete Expired" removes venues whose deadlines have all passed until page refresh.</small>
               </div>
 
                 <div class="checkbox">
                   <label>
-                    <input type="checkbox" id="show-past-checkbox"> <strong>Show past deadlines</strong> (auto-hide expired)
+                    <input type="checkbox" id="show-past-checkbox"> <strong>Show past deadlines</strong>
                   </label>
                 </div>
-              </div>
-
           </div>
         </div>
       </div>
@@ -115,7 +113,7 @@
         {% assign prevyear = conf.year | minus: 1 %}
         {% assign deadline = conf.deadline[i] | replace: '%y', year | replace: '%Y', prevyear %}
         {% assign conf_id = conf.name | append: conf.year | append: '-' | append: i | slugify %}
-        <div id="{{ conf_id }}" class="conf {% for tag in conf.tags %} {{tag}} {% endfor %}">
+        <div id="{{ conf_id }}" data-venue-id="{{ conf.name | append: conf.year | slugify }}" class="conf {% for tag in conf.tags %} {{tag}} {% endfor %}">
           <div class="row">
               <div class="col-xs-12 col-sm-6">
                 <h2><a href="{{conf.link}}">{{conf.name}} {{conf.year}}</a></h2>
@@ -124,7 +122,7 @@
                   {% if conf.dblp %}
                   <a href="{{conf.dblp}}">DBLP</a><br />
                   {% endif %}
-                  {{conf.date | replace: '-', '–'}} {% if conf.place %}// <a href="http://maps.google.com/?q={{conf.place}}">{{conf.place}}</a>{% endif %}<br />
+                  {{conf.date | replace: '-', '–'}} {% if conf.place %}// {% if conf.place == 'TBA' %}TBA{% else %}<a href="https://maps.google.com/?q={{conf.place | url_encode}}">{{conf.place}}</a>{% endif %}{% endif %}<br />
                 </div>
               </div>
               <div class="col-xs-12 col-sm-6">
