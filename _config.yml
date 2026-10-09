@@ -12,3 +12,10 @@ ga_id: G-N8BEYXKQHK
 
 markdown: kramdown
 
+exclude:
+  - scripts
+  - tests
+  - sync-fork.sh
+  - AUTOMATION.md
+  - VENUE_SUBMISSIONS.md
+
