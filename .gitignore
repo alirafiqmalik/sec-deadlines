@@ -6,3 +6,10 @@ __pycache__/
 .env
 .env.*
 !.env.example
+node_modules/
+.wrangler/
+.build/
+.dev.vars
+.dev.vars.*
+test-results/
+playwright-report/

@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sec-deadlines-submissions",
+  "main": "src/worker.js",
+  "compatibility_date": "2026-10-09",
+  "workers_dev": true,
+  "preview_urls": false,
+  "durable_objects": {
+    "bindings": [{ "name": "SUBMISSIONS", "class_name": "DailySubmissions" }]
+  },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["DailySubmissions"] }],
+  "ratelimits": [{ "name": "REQUEST_LIMIT", "namespace_id": "82465101", "simple": { "limit": 10, "period": 60 } }],
+  "vars": {
+    "GITHUB_REPOSITORY": "alirafiqmalik/sec-deadlines",
+    "GITHUB_BRANCH": "master",
+    "ALLOWED_ORIGIN": "https://alihamzamalik.me",
+    "TURNSTILE_HOSTNAME": "alihamzamalik.me",
+    "TURNSTILE_SITE_KEY": "",
+    "SUBMISSIONS_ENABLED": "false"
+  },
+  "observability": {
+    "enabled": true,
+    "logs": { "enabled": true, "head_sampling_rate": 1 },
+    "traces": { "enabled": true, "head_sampling_rate": 0.01 }
+  }
+}

@@ -13,6 +13,7 @@ ga_id: G-N8BEYXKQHK
 markdown: kramdown
 
 exclude:
+  - backend
   - scripts
   - tests
   - sync-fork.sh
