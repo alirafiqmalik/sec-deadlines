@@ -110,3 +110,11 @@ test("keeps form disabled when backend is not ready", async ({ page }) => {
   await expect(page.locator("#venue-status")).toContainText("temporarily unavailable");
   await expect(page.locator("#venue-submit")).toBeDisabled();
 });
+
+test("explains setup state when no production endpoint is configured", async ({ page }) => {
+  await page.goto("./");
+  await page.evaluate(() => document.getElementById("add-venue-dialog").dataset.api = "");
+  await page.locator("#add-venue-btn").click();
+  await expect(page.locator("#venue-status")).toHaveText("Venue submissions are being set up. Please try again later.");
+  await expect(page.locator("#venue-submit")).toBeDisabled();
+});

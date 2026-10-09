@@ -78,7 +78,9 @@ async function open() {
   if (loading) return;
   loading = true;
   try {
-    const endpoint = new URL(dialog.dataset.api);
+    let endpoint;
+    try { endpoint = new URL(dialog.dataset.api); }
+    catch { throw new Error("Venue submissions are being set up. Please try again later."); }
     if (!/^https:\/\/sec-deadlines-submissions\.[a-z0-9-]+\.workers\.dev$/.test(endpoint.origin) || endpoint.pathname !== "/" || endpoint.search || endpoint.hash) throw new Error("Venue submissions are being set up. Please try again later.");
     api = endpoint.origin;
     config = await request("/api/config");
@@ -90,7 +92,7 @@ async function open() {
       await verification();
       if (dialog.open) form.elements.name.focus();
     }
-  } catch (error) { message(error.message === "Invalid URL" ? "Venue submissions are being set up. Please try again later." : error.message, true); }
+  } catch (error) { message(error.message, true); }
   finally { loading = false; refreshControls(); }
 }
 
