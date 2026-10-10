@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "sec-deadlines-submissions",
+  "account_id": "b8f7a982d910b10410e0ca9c1fc8b25b",
   "main": "src/worker.js",
   "compatibility_date": "2026-10-09",
   "workers_dev": true,
@@ -15,12 +16,12 @@
     "GITHUB_BRANCH": "master",
     "ALLOWED_ORIGIN": "https://alihamzamalik.me",
     "TURNSTILE_HOSTNAME": "alihamzamalik.me",
-    "TURNSTILE_SITE_KEY": "",
-    "SUBMISSIONS_ENABLED": "false"
+    "TURNSTILE_SITE_KEY": "0x4AAAAAAFS1wzff7JoOUavM",
+    "SUBMISSIONS_ENABLED": "true"
   },
   "observability": {
     "enabled": true,
-    "logs": { "enabled": true, "head_sampling_rate": 1 },
-    "traces": { "enabled": true, "head_sampling_rate": 0.01 }
+    "logs": { "enabled": true, "head_sampling_rate": 1, "invocation_logs": false },
+    "traces": { "enabled": false, "head_sampling_rate": 0.01 }
   }
 }
