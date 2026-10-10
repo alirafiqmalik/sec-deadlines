@@ -38,7 +38,8 @@ Do not delete daily quota tags to retry a failed request.
 - The **Venue data safety** check compares the record with its immutable quota proof.
 - The `pull_request_target` check runs trusted base-branch code. It never checks out or executes submitted code.
 - Commit statuses cover generated PRs immediately. Some generated PR workflows require GitHub approval before they can run.
-- Runtime logs contain submission references and quota slots. They omit credentials, receipts, IPs, and venue details.
+- Application logs contain submission references and quota slots. They omit credentials, receipts, IPs, and venue details.
+- Request invocation logs and traces are disabled to reduce unnecessary data collection.
 - Receipts stay in session storage for status checks. The server stores their hashes and removes daily records after eight days.
 
 Bot verification does not establish identity or prove that a conference is legitimate.
@@ -48,8 +49,9 @@ Code-only PRs need a separate code review, even when the venue check passes.
 
 ## Activation
 
-The repository ships with submissions disabled and an empty frontend API URL.
-Existing deadline controls continue to work before activation.
+Production uses `https://sec-deadlines-submissions.alirafiqmalik.workers.dev`.
+The public endpoint and widget key are in configuration. Secret values stay in Cloudflare and GitHub secret managers.
+The steps below describe how to activate a fresh deployment or restore this setup.
 
 1. Authenticate Cloudflare for the intended account.
 2. Create a managed Turnstile widget for `alihamzamalik.me`, without pre-clearance.
@@ -73,6 +75,20 @@ Keep the default branch named `master`, or update both the workflow guard and pr
 Never place secret values in Git, browser code, issue bodies, or chat.
 Use the authenticated secret manager or standard input for secret writes.
 Ignored `.dev.vars` files are available for local development. Do not use them for production credentials.
+
+## Deployment verification
+
+The production endpoint is enabled as of 10 October 2026.
+The [43 automated checks](https://github.com/alirafiqmalik/sec-deadlines/actions/runs/38024342943) and [website deployment](https://github.com/alirafiqmalik/sec-deadlines/actions/runs/38024342297) passed.
+
+Live API checks rejected foreign origins, unsigned callbacks, unknown receipts, forged bot tokens, private-address URLs, and oversized requests.
+The restricted GitHub token dispatched an intentionally invalid signed request.
+That [security test](https://github.com/alirafiqmalik/sec-deadlines/actions/runs/38024824242) failed as expected with a signature mismatch, before any venue write.
+It did not create a PR or consume a daily slot.
+
+A complete production form submission and PR callback still require verification in a normal browser.
+The automated browser could not complete the production Turnstile challenge.
+Production bot checks remain enabled. No test venue has been submitted or merged.
 
 ## Tests
 
