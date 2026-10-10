@@ -140,3 +140,5 @@
   - SEC
   - CONF
   - TOP4
+
+- {"name":"SAIS","year":2027,"link":"https://www.usenix.org/conference/sais27","deadline":["2027-02-04 23:59"],"timezone":"America/New_York","date":"June 7\u20138, 2027","place":"Santa Clara, CA, USA","tags":["AI","CONF","SEC"]}
