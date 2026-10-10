@@ -8,7 +8,7 @@ baseurl: "/sec-deadlines"
 twitter_username: AliMalik_2000
 github_username: alirafiqmalik
 github_repo: sec-deadlines 
-venue_submission_api: ""
+venue_submission_api: "https://sec-deadlines-submissions.alirafiqmalik.workers.dev"
 ga_id: G-N8BEYXKQHK
 
 markdown: kramdown
